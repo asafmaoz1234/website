@@ -138,13 +138,14 @@
             <hr class="d-print-none"/>
             <div class="skills-section px-3 px-lg-4">
                 <h2 class="h3 mb-3">Projects</h2>
-                <div class="tab-content gallery mt-5">
+                <div class="tab-content gallery mt-3">
                     <div class="tab-pane active" id="web-development">
                         <div class="ml-auto mr-auto">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="cc-porfolio-image img-raised" data-aos="fade-up"
                                          data-aos-anchor-placement="top-bottom">
+                                        <a href="https://github.com/asafmaoz1234/website" target="_blank">Github repository</a>
                                         <figure class="cc-effect"><img src="images/site_setup_architecture.png" alt="Image"/>
                                             <figcaption>
                                                 <div class="h4">Serverless site</div>
@@ -155,21 +156,33 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="cc-porfolio-image img-raised" data-aos="fade-up"
-                                         data-aos-anchor-placement="top-bottom"><a href="#placeholder">
-                                        <figure class="cc-effect"><img src="images/project-1.jpg" alt="Image"/>
+                                         data-aos-anchor-placement="top-bottom"><a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">Github repository</a>
+                                        <figure class="cc-effect"><img src="images/irrigationDIY.png" alt="Image"/>
                                             <figcaption>
-                                                <div class="h4">TBD</div>
-                                                <p>Updated soon</p>
+                                                <div class="h4">Home irrigation - DIY</div>
+                                                <p>A Do It Yourself irrigation system using Arduino</p>
                                             </figcaption>
                                         </figure>
                                     </a></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="cc-porfolio-image img-raised" data-aos="fade-up"
+                                             data-aos-anchor-placement="top-bottom">
+                                            <figure class="cc-effect"><img src="images/project-1.jpg" alt="Image"/>
+                                                <figcaption>
+                                                    <div class="h4">TBD</div>
+                                                    <p>Working on it</p>
+                                                </figcaption>
+                                            </figure>
+                                            </a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
 
             <hr class="d-print-none"/>
             <div class="work-experience-section px-3 px-lg-4">
@@ -180,16 +193,13 @@
                             <div class="h5 mb-1">Senior Software Developer <span class="text-muted h6">at Bizzabo</span>
                             </div>
                             <div class="text-muted text-small mb-2">January, 2022 - Present</div>
-                            <div>Lead the design, implementation and integration of a major process aimed to
-                                provide key
-                                capabilities.</br>
-                                Knowledge shared on system design, coding best practices, team work, testing
-                                and
-                                monitoring.</br>
-                                Mentored and guided a project aimed to reduce latency and handle issues
-                                related to 3rd
-                                parties rate limits.</br>
-                                Enhanced infrastructure capabilities
+                            <div>
+                                <ul>
+                                    <li>Led the development of a major process under a strict deadline, creating aws resources using aws sdk, added monitoring, alerting and real time dashboard to catch issues asap.</li>
+                                    <li>Led a project aimed to reduce latency and handle rate limits by using kafka and Redis, changing a synchronized process to asynchronized and adding recovery, batching and retries.</li>
+                                    <li>Knowledge shared on system design, coding best practices, team work, testing and monitoring.</li>
+                                    <li>Enhanced infrastructure capabilities by adding feature flags support.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -199,12 +209,13 @@
                                     class="text-muted h6">at GE Healthcare</span></div>
                             <div class="text-muted text-small mb-2">April, 2020 - January, 2022</div>
                             <div>
-                                Developed in a serverless environment using the AWS ecosystem.</br>
-                                Spearheaded massive infrastructure-upgrade projects designed to insure
-                                stability and
-                                data integrity across several microservices</br>
-                                Designed new services and reduced latency up to 70% in several main back end
-                                processes.
+                                <ul>
+                                    <li>Developed in a serverless environment on AWS cloud using api gateway, lambdas, S3, SQS, kinesis and SNS.</li>
+                                    <li>Led infrastructure-upgrade projects designed to insure data integrity by adding a retry and recovery process for resource updates
+                                        And changing the way we updated our data.</li>
+                                    <li>Added support for Xray (distributed tracing system) by using AOP and custom annotations, this led to reduced latency up to 70% in several main back end processes and identifying latency downgrades in 3rd parties.</li>
+                                    <li>Added custom feature flags methods by using aws environments parameters to a shared dependency for safer deployments and easier development on a shared dev env.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -213,13 +224,11 @@
                         <div class="h5 mb-1">Software Developer <span class="text-muted h6">at Check Point Software Technologies Ltd.</span>
                         </div>
                         <div class="text-muted text-small mb-2">November, 2017 - April, 2020</div>
-                        <div>Developed and improved the product infrastructure and API’s.<br>
-                            Was part of designing and implementing an improved detection flow that reduces
-                            resources
-                            usage and designed to scale.<br>
-                            Improved the on boarding process for new employees.</br>
-                            Improved the development workflow by creating scripts to replace manual
-                            operations.
+                        <div><ul>
+                            <li>Developed and improved the product infrastructure and API’s.</li>
+                            <li>Was part of designing and implementing an improved detection flow that reduces resources usage and designed to scale.</li>
+                            <li>Improved the development workflow by creating scripts to replace manual operations.</li>
+                        </ul>
                         </div>
                     </div>
                 </div>
@@ -229,18 +238,14 @@
                                 class="text-muted h6">at MyCheck</span>
                         </div>
                         <div class="text-muted text-small mb-2">January, 2014 - November, 2017</div>
-                        <div>Hands on Java team lead.<br>
-                            Designed, implemented and integrated several 3rd party payment providers and
-                            completing the
-                            certification processes.<br>
-                            Lead major infrastructure upgrades by integrating Spring framework and lead the
-                            development
-                            of an integration test microservice.<br>
-                            Established a development flow with code reviews, unit tests and optimized QA
-                            process.<br>
-                            Optimized resources including the number of instances, JVM GC configurations,
-                            investigating
-                            instances logs etc...
+                        <div>
+                            <ul>
+                                <li>Hands on Java team lead.</li>
+                                <li>Established a development and deployment flow with code reviews, unit tests and optimized QA process, this included guidance on code reviews, setting requirements on test coverage and per feature QA tests.</li>
+                                <li>Integrated multiple 3rd party payment providers, building custom payloads and handling per provider responses, completed certification processes under strict deadlines.</li>
+                                <li>Integrating Spring framework and led the development of an integration test microservice for full flow testing.</li>
+                                <li>Optimized resources including the number of instances, JVM GC configurations, investigating instances logs</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -249,10 +254,13 @@
                         <div class="h5 mb-1">Full Stack Developer <span class="text-muted h6">at Investing.com</span>
                         </div>
                         <div class="text-muted text-small mb-2">January, 2012 - December, 2013</div>
-                        <div>Developed infrastructure tools and new features<br>
-                            Optimized DB queries and DB structure.<br>
-                            Implementing a custom MVC architecture.<br>
-                            A key player in creating and enhancing the primary site search tool.
+                        <div>
+                            <ul>
+                                <li>Developed infrastructure tools and new features</li>
+                                <li>Optimized DB queries and DB structure.</li>
+                                <li>Implemented a custom MVC architecture.</li>
+                                <li>Enhanced the site primary search tool.</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -261,14 +269,9 @@
                         <div class="h5 mb-1">Co Founder & Full Stack developer <span
                                 class="text-muted h6">at Modovideo</span></div>
                         <div class="text-muted text-small mb-2">January, 2011 - 2012</div>
-                        <div>Working on my own venture I was involved in all aspects of the company and
-                            product,
-                            including designing and developing backend tools, researching and integrating
-                            3rd parties
-                            such as Facebook Graph API,
-                            designing and implementing UI features, I was also incharge of customer
-                            relations and
-                            financial aspects.
+                        <div>Working on my own venture I was involved in all aspects of the company and product, including designing and developing backend tools,
+                            researching and integrating 3rd parties such as Facebook Graph API,
+                            designing and implementing UI features, I was also incharge of customer relations and financial aspects.
                         </div>
                     </div>
                 </div>
