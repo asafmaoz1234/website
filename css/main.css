@@ -115,6 +115,11 @@ html {
 .text-teal {
   color: #4A89DC }
 
+hr.project-separator {
+  background-color: #fff;
+  border-top: 2px dashed #8c8b8b;
+  width:20%;
+}
 
 footer a:not(.nav-link) {
   color: inherit;
