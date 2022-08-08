@@ -97,13 +97,17 @@
                 <h2 class="h3 mb-2">Quick links</h2>
                 <div class="row">
                     <div class="col-md-12">
-                        <p><a href="#serverless_site">Serverless website</a> Set up a serverless website, hosted on AWS
-                            S3 and using AWS cloudfront for accelerated content delivery.</p>
-                        <p><a href="#arduino_diy">Arduino home irrigation</a> Using Arduino and 5V pump for a standalone
-                            garden irrigation system.</p>
-                        <p><a href="#beach_time">Its snorkeling time!</a> Using AWS serverless services and a weather
-                            api, notify me if sea conditions are great for snorkeling.</p>
-                        <p><a href="#peppers">Growing hot peppers</a> Israel's first hot pepper growing community I founded in 2015.</p>
+                        <ul>
+                            <li><p><a href="#beach_time">Its snorkeling time!</a> Using AWS serverless services and a weather
+                                api, notify me if sea conditions are great for snorkeling.</p></li>
+                            <li><p><a href="#serverless_site">Serverless website</a> - Set up a serverless website, hosted on AWS
+                                S3 and using AWS cloudfront for accelerated content delivery.</p></li>
+                            <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring project with REST endpoints,
+                                unit tests and a postman collection to kickstart small projects.</p></li>
+                            <li><p><a href="#arduino_diy">Arduino home irrigation</a> - Using Arduino and 5V pump for a standalone
+                                garden irrigation system.</p></li>
+                            <li><p><a href="#peppers">Growing hot peppers</a> - Israel's first hot pepper growing community I founded in 2015.</p></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -155,11 +159,11 @@
                     </div>
                     <br><hr class="project-separator" style="margin: auto;"/><br>
                     <div class="row g-0">
-                        <div class="col-md-6 hover-effect bg-white shadow-sm p-1">
+                        <div id="beach_time" class="col-md-6 hover-effect bg-white shadow-sm p-1">
                             <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">
                                 <img class="img-fluid" src="../images/lambda-beach-time.png"/></a>
                         </div>
-                        <div id="beach_time" class="col-md-6 d-flex align-items-center" data-aos="fade-left"
+                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
                              data-aos-delay="100">
                             <div class="m-1 mt-md-2">
                                 <p class="text-teal text-small">JAVA / AWS Lambda / SQS / CloudWatch</p>
@@ -182,7 +186,7 @@
                              data-aos-delay="100">
                             <div class="m-1 mt-md-2">
                                 <p class="text-teal text-small">Social / Hot peppers / Community</p>
-                                <h3>Israel Hot Peppers group</h3>
+                                <h3>1st Israel Hot Peppers group</h3>
                                 <p class="text-muted">Why? Back in 2015, I started gardening as a hobby and found a world of hot peppers
                                     without a local community or products in the local market.<br>
                                     I founded the first Israeli hot peppers group which today has over 12K members, the group shares
@@ -195,6 +199,25 @@
                         <div class="col-md-6 hover-effect bg-white shadow-sm p-1">
                             <a href="https://www.facebook.com/groups/IL.hot.pepper.grow" target="_blank">
                                 <img class="img-fluid" src="../images/hot_peppers.jpeg"/></a>
+                        </div>
+                    </div>
+                    <br><hr class="project-separator" style="margin: auto;"/><br>
+                    <div class="row g-0">
+                        <div id="skeleton-spring-controller" class="col-md-6 hover-effect bg-white shadow-sm p-1">
+                            <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">
+                                <img class="img-fluid" src="../images/skeleton-spring-api.png"/></a>
+                        </div>
+                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
+                             data-aos-delay="100">
+                            <div class="m-1 mt-md-2">
+                                <p class="text-teal text-small">JAVA / Spring / REST</p>
+                                <h3>Quick start your spring api</h3>
+                                <p class="text-muted">Why? I wanted to reduce the setup time for a project that will use Spring and REST endpoints.<br>
+                                    So I set up a small repository with Spring boot, Spring web and maven, it is ready with implemented GET/POST/PUT/DELETE
+                                    endpoints, basic unit testing, autowired model and even a postman collection for faster manual testing setup.<br>
+                                    <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">github
+                                        repository</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
