@@ -98,8 +98,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><p><a href="#beach_time">Its snorkeling time!</a> Using AWS serverless services and a weather
-                                api, notify me if sea conditions are great for snorkeling.</p></li>
+                            <li><p><a href="#beach_time">Its snorkeling time!</a> A scheduled aws lambda that notifies me if sea conditions are great for snorkeling (full CI-CD).</p></li>
                             <li><p><a href="#serverless_site">Serverless website</a> - Set up a serverless website, hosted on AWS
                                 S3 and using AWS cloudfront for accelerated content delivery.</p></li>
                             <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring project with REST endpoints,
@@ -166,15 +165,16 @@
                         <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
                              data-aos-delay="100">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">JAVA / AWS Lambda / SQS / CloudWatch</p>
+                                <p class="text-teal text-small">JAVA / AWS Lambda / SQS / CloudWatch / CI-CD</p>
                                 <h3>Its beach time!</h3>
                                 <p class="text-muted">Why? I want to get notified when sea visibility is good enough for
                                     snorkeling in specific areas I want to dive. <br>
-                                    So I set up a cloud watch event to everyday trigger a lambda, the lambda runs a java
+                                    So I set up a cloud watch event to trigger a lambda once a day, it runs a java
                                     project that queries
                                     <a href="https://stormglass.io/" target="_blank">stormglass.io</a> for last 3 days
-                                    weather and according to a set of rules
-                                    publishes a message to SQS to my email notifications queue.<br>
+                                    weather, and according to a set of rules -
+                                    publishes a message to SQS and another lambda handles the notification.<br>
+                                    Using github actions for CI-CD on PR and merge.
                                     <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">github
                                         repository</a></p>
                             </div>
