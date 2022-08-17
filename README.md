@@ -1,10 +1,11 @@
+# My website
 
 <div>
-    <p>Main Html - CSS - images - docs repository for my site:</p>
     <p align="center">https://asafmaoz.com </p>
     <ul>
         <li>
-        <p>The website is hosted on AWS cloud as a serverless website.</p>
+        <p>Serverless, Hosted on AWS.</p>
+        <p>S3 holds the files as a static webisite, cloudfront accelerates content delievery.</p>
         <dl>
             <dt>Route 53</dt>
             <dd>- Route requests and set up access roles</dd>
