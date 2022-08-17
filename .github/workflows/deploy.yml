@@ -13,6 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: print location
+        run: pwd
+      - name: list dirs
+        run: ls /home/runner/work/website/website
       - name: Sync S3 bucket with modified files
         run: aws s3 sync ./hub s3://${{ secrets.BUCKET_ROOT }}
         env:
