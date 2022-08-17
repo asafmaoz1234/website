@@ -3,9 +3,10 @@
 <div>
     <p align="center">https://asafmaoz.com </p>
     <ul>
-        <li>
-        <p>Serverless, Hosted on AWS.</p>
-        <p>S3 holds the files as a static webisite, cloudfront accelerates content delievery.</p>
+        <li><p>Serverless, Hosted on AWS.</p></li>
+        <li><p>S3 holds the files as a static webisite, cloudfront accelerates content delievery.</p></li>
+        <li>github actions for CI-CD</li>
+    </ul>
         <dl>
             <dt>Route 53</dt>
             <dd>- Route requests and set up access roles</dd>
@@ -23,6 +24,6 @@
         <p align="center">
             <img src="https://github.com/asafmaoz1234/website/blob/main/images/site_setup_architecture.png">
         </p>
-<li>    <p>The main HTML-CSS is from several free resume template I tweaked and combined into one.</p></li>
-    </ul>
+   <p>The main HTML-CSS is from several free resume template I tweaked and combined into one.</p></li>
+  
 </div>
