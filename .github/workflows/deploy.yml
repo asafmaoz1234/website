@@ -4,17 +4,17 @@ on:
   pull_request:
     branches:
       - main
-#     types:
-#       - closed
+    types:
+      - closed
 
 jobs:
   update_website_if_merged:
-#     if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - name: Sync S3 bucket with modified files
-        run: aws s3 sync /home/runner/work/website/website/scripts s3://${{ secrets.BUCKET_ROOT }}
+        run: aws s3 sync /home/runner/work/website/website s3://${{ secrets.BUCKET_ROOT }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
