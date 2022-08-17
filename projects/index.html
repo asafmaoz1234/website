@@ -98,12 +98,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><p><a href="#beach_time">Its snorkeling time!</a> A scheduled aws lambda that notifies me if sea conditions are great for snorkeling (full CI-CD).</p></li>
-                            <li><p><a href="#serverless_site">Serverless website</a> - A serverless website, hosted on AWS
-                                S3 and using AWS cloudfront for accelerated content delivery (full CI-CD).</p></li>
-                            <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring project with REST endpoints,
-                                unit tests and a postman collection to kickstart small projects.</p></li>
-                            <li><p><a href="#arduino_diy">Arduino home irrigation</a> - Using Arduino and 5V pump for a standalone
+                            <li><p><a href="#beach_time">Its snorkeling time!</a> AWS lambda that notifies on optimal conditions for snorkeling (full CI-CD).</p></li>
+                            <li><p><a href="#serverless_site">Serverless website</a> - Files on S3, CloudFront for accelerated content delivery (full CI-CD).</p></li>
+                            <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring boot, REST, unit tests and a postman collection.</p></li>
+                            <li><p><a href="#arduino_diy">Arduino home irrigation</a> - Arduino and 5V pump for a standalone
                                 garden irrigation system.</p></li>
                             <li><p><a href="#peppers">Growing hot peppers</a> - Israel's first hot pepper growing community I founded in 2015.</p></li>
                         </ul>
@@ -121,13 +119,13 @@
                             <img class="img-fluid" src="../images/site_setup_architecture.png"/></a></div>
                         <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">AWS S3 / Cloudfront / Route53 / HTML / CSS</p>
+                                <p class="text-teal text-small">AWS S3 / Cloudfront / Route53 / HTML / CSS / CI-CD</p>
                                 <h3>Serverless website</h3>
                                 <p class="text-muted">Why? I wanted to own the infrastructure and reduce costs of
                                     hosting.<br>
                                     By using aws services such as S3 and Cloudfront, I managed to set up this scalable
                                     high performance site that costs less than 1$ a month.<br>
-                                    Using github actions for CI-CD on PR and merge.
+                                    Using github actions for CI-CD.<br>
                                     <a href="https://github.com/asafmaoz1234/website" target="_blank">github
                                         repository</a></p>
                             </div>
@@ -175,7 +173,7 @@
                                     <a href="https://stormglass.io/" target="_blank">stormglass.io</a> for last 3 days
                                     weather, and according to a set of rules -
                                     publishes a message to SQS and another lambda handles the notification.<br>
-                                    Using github actions for CI-CD on PR and merge.
+                                    Using github actions for CI-CD.<br>
                                     <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">github
                                         repository</a></p>
                             </div>
