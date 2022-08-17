@@ -13,8 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: print location
+        run: pwd
       - name: Sync S3 bucket with modified files
-        run: aws s3 sync hub s3://${{ secrets.BUCKET_ROOT }}
+        run: aws s3 sync /hub s3://${{ secrets.BUCKET_ROOT }}
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
