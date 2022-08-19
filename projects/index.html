@@ -98,9 +98,10 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><p><a href="#beach_time">Its snorkeling time!</a> AWS lambda that notifies on optimal conditions for snorkeling (full CI-CD).</p></li>
-                            <li><p><a href="#serverless_site">Serverless website</a> - Files on S3, CloudFront for accelerated content delivery (full CI-CD).</p></li>
+                            <li><p><a href="#beach_time">Its snorkeling time!</a> AWS lambda that notifies on optimal conditions for snorkeling.</p></li>
+                            <li><p><a href="#serverless_site">Serverless website</a> - Files on S3, CloudFront for accelerated content delivery.</p></li>
                             <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring boot, REST, unit tests and a postman collection.</p></li>
+                            <li><p><a href="#githuactions-cicd">CI-CD, github actions</a> - GitHub actions to streamline deployment process.</p></li>
                             <li><p><a href="#arduino_diy">Arduino home irrigation</a> - Arduino and 5V pump for a standalone
                                 garden irrigation system.</p></li>
                             <li><p><a href="#peppers">Growing hot peppers</a> - Israel's first hot pepper growing community I founded in 2015.</p></li>
@@ -217,6 +218,28 @@
                                     <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">github
                                         repository</a></p>
                             </div>
+                        </div>
+                    </div>
+                    <br><hr class="project-separator" style="margin: auto;"/><br>
+                    <div class="row g-0 portfolio-reverse">
+                        <div id="githuactions-cicd" class="col-md-6 d-flex align-items-center" data-aos="fade-right"
+                             data-aos-delay="100">
+                            <div class="m-1 mt-md-2">
+                                <p class="text-teal text-small">github action / ci-cd / js / git / workflow</p>
+                                <h3>GitHub actions for CI-CD</h3>
+                                <p class="text-muted">Why? I wanted to try GitHub actions and streamline deployment from GitHub to AWS.<br>
+                                    Action to deploy the jar to an AWS lambda -
+                                    <a href="https://github.com/marketplace/actions/aws-lambda-update-jar-zip" target="_blank">view in marketplace</a>.
+                                    Action to build, test, package and deploy on merged PR to main.
+                                    <a href="https://github.com/asafmaoz1234/Its-snorkeling-time/blob/main/.github/workflows/deploy.yaml" target="_blank">view action</a><br>
+                                    Action to sync S3 bucket with modified files and invalidate cloudFront distribution on merged PR.<br>
+                                    <a href="https://github.com/asafmaoz1234/website/blob/main/.github/workflows/deploy.yml" target="_blank">view action</a><br>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 hover-effect bg-white shadow-sm p-1">
+                            <a href="https://github.com/marketplace/actions/aws-lambda-update-jar-zip" target="_blank">
+                                <img class="img-fluid" src="../images/actions-cicd.png"/></a>
                         </div>
                     </div>
                 </div>
