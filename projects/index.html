@@ -101,7 +101,7 @@
                             <li><p><a href="#beach_time">Its snorkeling time!</a> AWS lambda that notifies on optimal conditions for snorkeling.</p></li>
                             <li><p><a href="#serverless_site">Serverless website</a> - Files on S3, CloudFront for accelerated content delivery.</p></li>
                             <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring boot, REST, unit tests and a postman collection.</p></li>
-                            <li><p><a href="#githuactions-cicd">CI-CD, github actions</a> - GitHub actions to streamline deployment process.</p></li>
+                            <li><p><a href="#githubactions-cicd">CI-CD, github actions</a> - GitHub actions to streamline deployment process.</p></li>
                             <li><p><a href="#arduino_diy">Arduino home irrigation</a> - Arduino and 5V pump for a standalone
                                 garden irrigation system.</p></li>
                             <li><p><a href="#peppers">Growing hot peppers</a> - Israel's first hot pepper growing community I founded in 2015.</p></li>
@@ -114,31 +114,35 @@
             <div class="skills-section px-3 px-lg-4" id="portfolio">
                 <div class="portfolio-section">
                     <h2 class="h3 mb-2">Projects</h2>
-                    <div class="row">
-                        <div id="serverless_site" class="col-md-6 hover-effect bg-white shadow-sm p-1"><a
-                                href="https://github.com/asafmaoz1234/website" target="_blank">
-                            <img class="img-fluid" src="../images/site_setup_architecture.png"/></a></div>
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-left" data-aos-delay="100">
+
+                    <br><hr id="serverless_site" class="project-separator" style="margin: auto;"/><br>
+                    <div class="row align-items-center" data-aos="fade-right" data-aos-delay="100">
+                        <div>
+                            <h4 style="display:inline">Serverless website</h4>
+                            <p class="text-teal text-small" style="display:inline">AWS S3 / CloudFront / Route53 / HTML / CSS</p>
+                        </div>
+                        <div class="col-md-6 hover-effect bg-white shadow-sm p-1">
+                            <a href="https://github.com/asafmaoz1234/website" target="_blank">
+                            <img class="img-fluid" src="../images/site_setup_architecture.png"/></a>
+                        </div>
+                        <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">AWS S3 / Cloudfront / Route53 / HTML / CSS / CI-CD</p>
-                                <h3>Serverless website</h3>
-                                <p class="text-muted">Why? I wanted to own the infrastructure and reduce costs of
-                                    hosting.<br>
+                                <p class="text-muted">Why? I wanted to own the infrastructure and reduce costs of hosting.<br>
                                     By using aws services such as S3 and Cloudfront, I managed to set up this scalable
                                     high performance site that costs less than 1$ a month.<br>
-                                    Using github actions for CI-CD.<br>
-                                    <a href="https://github.com/asafmaoz1234/website" target="_blank">github
-                                        repository</a></p>
+                                    <a href="https://github.com/asafmaoz1234/website" target="_blank">github repository</a></p>
                             </div>
                         </div>
                     </div>
-                       <br><hr id="arduino_diy" class="project-separator" style="margin: auto;"/><br>
-                    <div class="row g-0 portfolio-reverse">
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-right"
-                             data-aos-delay="100">
+
+                    <br><hr id="arduino_diy" class="project-separator" style="margin: auto;"/><br>
+                    <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
+                        <div>
+                            <h4 style="display:inline">Do it yourself irrigation</h4>
+                            <p class="text-teal text-small" style="display:inline">Arduino / C++ / DIY</p>
+                        </div>
+                        <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">Arduino / C++ / DIY</p>
-                                <h3>Do it yourself irrigation</h3>
                                 <p class="text-muted">Why? I needed an automated way to water my pepper plants, but I
                                     did not have a water connection.
                                     So I connected an Arduino Uno to a 12V water pump and ~40 liter of water.<br>
@@ -146,8 +150,7 @@
                                     to set up an automated irrigation anywhere I need.<br>
                                     <a href="https://youtu.be/uQyjRWnla7U" target="_blank">short video</a>(it only looks
                                     like a bomb)<br>
-                                    <a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">github
-                                        repository</a>
+                                    <a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">github repository</a>
                                 </p>
                             </div>
                         </div>
@@ -156,17 +159,19 @@
                                 <img class="img-fluid" src="../images/irrigationDIY.png"/></a>
                         </div>
                     </div>
+
                     <br><hr id="beach_time" class="project-separator" style="margin: auto;"/><br>
-                    <div class="row g-0">
+                    <div class="row g-0"  data-aos="fade-right" data-aos-delay="100">
+                        <div>
+                            <h4 style="display:inline">Its beach time!</h4>
+                            <p class="text-teal text-small" style="display:inline">JAVA / AWS Lambda / SQS / CloudWatch / CI-CD</p>
+                        </div>
                         <div class="col-md-6 hover-effect bg-white shadow-sm p-1">
                             <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">
                                 <img class="img-fluid" src="../images/lambda-beach-time.png"/></a>
                         </div>
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
-                             data-aos-delay="100">
+                        <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">JAVA / AWS Lambda / SQS / CloudWatch / CI-CD</p>
-                                <h3>Its beach time!</h3>
                                 <p class="text-muted">Why? I want to get notified when sea visibility is good enough for
                                     snorkeling in specific areas I want to dive. <br>
                                     So I set up a cloud watch event to trigger a lambda once a day, it runs a java
@@ -175,18 +180,20 @@
                                     weather, and according to a set of rules -
                                     publishes a message to SQS and another lambda handles the notification.<br>
                                     Using github actions for CI-CD.<br>
-                                    <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">github
-                                        repository</a></p>
+                                    <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">github repository</a></p>
                             </div>
                         </div>
                     </div>
+
                     <br><hr id="peppers" class="project-separator" style="margin: auto;"/><br>
-                    <div class="row g-0 portfolio-reverse">
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-right"
-                             data-aos-delay="100">
+                    <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
+                        <div>
+                            <h4 style="display:inline">1<sup>st</sup> Israel Hot Peppers group</h4>
+                            <p class="text-teal text-small" style="display:inline">Social / Hot peppers / Community</p>
+                        </div>
+
+                        <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">Social / Hot peppers / Community</p>
-                                <h3>1st Israel Hot Peppers group</h3>
                                 <p class="text-muted">Why? Back in 2015, I started gardening as a hobby and found a world of hot peppers
                                     without a local community or products in the local market.<br>
                                     I founded the first Israeli hot peppers group which today has over 12K members, the group shares
@@ -201,32 +208,35 @@
                                 <img class="img-fluid" src="../images/hot_peppers.jpeg"/></a>
                         </div>
                     </div>
+
                     <br><hr id="skeleton-spring-controller" class="project-separator" style="margin: auto;"/><br>
-                    <div class="row g-0">
+                    <div class="row g-0 align-items-center" data-aos="fade-right" data-aos-delay="100">
+                    <div>
+                            <h4 style="display:inline">Quick start your spring api</h4>
+                            <p class="text-teal text-small" style="display:inline">JAVA / Spring / REST</p>
+                        </div>
                         <div class="col-md-6 hover-effect bg-white shadow-sm p-1">
                             <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">
                                 <img class="img-fluid" src="../images/skeleton-spring-api.png"/></a>
                         </div>
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-left"
-                             data-aos-delay="100">
+                        <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">JAVA / Spring / REST</p>
-                                <h3>Quick start your spring api</h3>
                                 <p class="text-muted">Why? I wanted to reduce the setup time for a project that will use Spring and REST endpoints.<br>
                                     So I set up a small repository with Spring boot, Spring web and maven, it is ready with implemented GET/POST/PUT/DELETE
                                     endpoints, basic unit testing, autowired model and even a postman collection for faster manual testing setup.<br>
-                                    <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">github
-                                        repository</a></p>
+                                    <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">github repository</a></p>
                             </div>
                         </div>
                     </div>
-                    <br><hr id="githuactions-cicd" class="project-separator" style="margin: auto;"/><br>
-                    <div class="row g-0 portfolio-reverse">
-                        <div class="col-md-6 d-flex align-items-center" data-aos="fade-right"
-                             data-aos-delay="100">
+
+                    <br><hr id="githubactions-cicd" class="project-separator" style="margin: auto;"/><br>
+                    <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
+                        <div>
+                            <h4 style="display:inline">GitHub actions for CI-CD</h4>
+                            <p class="text-teal text-small" style="display:inline">github action / CI-CD / js / git / workflow</p>
+                        </div>
+                        <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-teal text-small">github action / ci-cd / js / git / workflow</p>
-                                <h3>GitHub actions for CI-CD</h3>
                                 <p class="text-muted">Why? I wanted to try GitHub actions and streamline deployment from GitHub to AWS.<br>
                                     Action to deploy the jar to an AWS lambda -
                                     <a href="https://github.com/marketplace/actions/aws-lambda-update-jar-zip" target="_blank">view in marketplace</a>.
