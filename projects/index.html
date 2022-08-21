@@ -98,13 +98,12 @@
                 <div class="row">
                     <div class="col-md-12">
                         <ul>
-                            <li><p><a href="#beach_time">Its snorkeling time!</a> AWS lambda that notifies on optimal conditions for snorkeling.</p></li>
-                            <li><p><a href="#serverless_site">Serverless website</a> - Files on S3, CloudFront for accelerated content delivery.</p></li>
-                            <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - Spring boot, REST, unit tests and a postman collection.</p></li>
-                            <li><p><a href="#githubactions-cicd">CI-CD, github actions</a> - GitHub actions to streamline deployment process.</p></li>
-                            <li><p><a href="#arduino_diy">Arduino home irrigation</a> - Arduino and 5V pump for a standalone
-                                garden irrigation system.</p></li>
-                            <li><p><a href="#peppers">Growing hot peppers</a> - Israel's first hot pepper growing community I founded in 2015.</p></li>
+                            <li><p><a href="#beach_time">Its snorkeling time!</a> A service to notify me when sea visibility should be great.</p></li>
+                            <li><p><a href="#serverless_site">Serverless website</a> - Highly scalable, cost-effective, low latency website.</p></li>
+                            <li><p><a href="#skeleton-spring-controller">Quick start your spring api</a> - A repository with implemented REST endpoints and more.</p></li>
+                            <li><p><a href="#githubactions-cicd">CI-CD</a> - Faster, safer deployment using Github actions workflows.</p></li>
+                            <li><p><a href="#arduino_diy">Do it yourself irrigation</a> - Automated irrigation without a water connection.</p></li>
+                            <li><p><a href="#peppers">Hot peppers</a> - A community for Israeli super hot pepper heads.</p></li>
                         </ul>
                     </div>
                 </div>
@@ -127,10 +126,16 @@
                         </div>
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">Why? I wanted to own the infrastructure and reduce costs of hosting.<br>
-                                    By using aws services such as S3 and Cloudfront, I managed to set up this scalable
-                                    high performance site that costs less than 1$ a month.<br>
-                                    <a href="https://github.com/asafmaoz1234/website" target="_blank">github repository</a></p>
+                                <p class="text-muted">
+                                    <b>What?</b> Highly scalable, cost-effective, low latency website.
+                                    <b>Why?</b> I wanted to run my own website, own and set up the infrastructure and reduce monthly costs of hosting.<br>
+                                    <b>How?</b><br>
+                                    <u>S3 bucket</u> - configured for "static website hosting" holds the files. S3 is a very low cost, highly scalable and low latency data storage.<br>
+                                    <u>Cloudfront distribution</u> (CDN) - for accelerated content delivery, its also cost-effective, and has default security for DDoS attacks.<br>
+                                    <u>Route53</u> - A reliable and cost-effective DNS service<br>
+                                    <u>AWS certificate manager</u> - to issue an SSL certificate for my domain.<br>
+                                    Resulting in a highly scalable low latency website that costs less than 1$ a month.<br>
+                                    <a href="https://github.com/asafmaoz1234/website" target="_blank">github repository (html-css only)</a></p>
                             </div>
                         </div>
                     </div>
@@ -143,14 +148,16 @@
                     <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">Why? I needed an automated way to water my pepper plants, but I
-                                    did not have a water connection.
-                                    So I connected an Arduino Uno to a 12V water pump and ~40 liter of water.<br>
-                                    using a simple program I wrote and components that cost less the 50$, I am now able
-                                    to set up an automated irrigation anywhere I need.<br>
-                                    <a href="https://youtu.be/uQyjRWnla7U" target="_blank">short video</a>(it only looks
-                                    like a bomb)<br>
-                                    <a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">github repository</a>
+                                <p class="text-muted">
+                                    <b>What?</b> Automated irrigation without a water connection.<br>
+                                    <b>Why?</b> I did not have a water connection near my pepper plants, and understanding how important
+                                    is regulated watering, I needed an automated way to water my pepper plants even when I forget or out of town.<br>
+                                    <b>How?</b>
+                                    I used Arduino Uno, which is an amazing low-cost microcontroller, wrote a simple program to schedule activation and connected the arduino to a 12V water pump
+                                    and the pump to ~40 liter of water (5 days of watering during summer).<br>
+                                    With components that cost less the 50$, I got an automated irrigation anywhere I need.<br>
+                                    <a href="https://youtu.be/uQyjRWnla7U" target="_blank">short video</a> (it only looks like a bomb)<br>
+                                    <a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">github repository for the schedule program</a>
                                 </p>
                             </div>
                         </div>
@@ -172,14 +179,16 @@
                         </div>
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">Why? I want to get notified when sea visibility is good enough for
-                                    snorkeling in specific areas I want to dive. <br>
-                                    So I set up a cloud watch event to trigger a lambda once a day, it runs a java
-                                    project that queries
-                                    <a href="https://stormglass.io/" target="_blank">stormglass.io</a> for last 3 days
-                                    weather, and according to a set of rules -
-                                    publishes a message to SQS and another lambda handles the notification.<br>
-                                    Using github actions for CI-CD.<br>
+                                <p class="text-muted">
+                                    <b>What?</b> A service to notify me when sea visibility should be great.<br>
+                                    <b>Why?</b> Instead of actively checking for consecutive days with low waves, which indicates visibility is good enough for snorkeling
+                                    I want to get notified on it.<br>
+                                    <b>How?</b>
+                                    <u>AWS Lambda</u> - Query a weather service api for measurements in specific geolocation coordinates
+                                    and according to a set of rules determine if it should notify me.<br>
+                                    <u>SQS</u> - get the notifications events and trigger a different lambda that handles emails and notifications.<br>
+                                    <u>CloudWatch</u> - scheduled event that triggers the lambda once a day.<br>
+                                    <u>github actions</u> - for CI-CD and testing on pull requests.<br>
                                     <a href="https://github.com/asafmaoz1234/lambda-beach-time" target="_blank">github repository</a></p>
                             </div>
                         </div>
@@ -193,11 +202,13 @@
                     <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">Why? Back in 2015, I started gardening as a hobby and found a world of hot peppers
-                                    without a local community or products in the local market.<br>
-                                    I founded the first Israeli hot peppers group which today has over 12K members, the group shares
-                                    guides, ideas and help each other. We had several meetings and today there are several hot peppers
-                                    groups, even a book was written, and you can find allot more super hot products.<br>
+                                <p class="text-muted">
+                                    <b>What?</b> A facebook community with over 12K members for Israeli pepper heads<br>
+                                    <b>Why?</b> Back in 2015, I started gardening as a hobby and found a world of hot peppers.
+                                    There was no dedicated local community for sharing seeds and growing tips or products in the local market that were "Super hot".<br>
+                                    <b>How?</b> I founded the first Israeli hot peppers group which today has over 12K members, we share
+                                    guides, ideas and help each other grow some of the hottest peppers in the world.<br>
+                                    We had several meetings and today there are several hot peppers communities, even a book was written on growing super hots, and you can find allot more super hot products.<br>
                                     <a href="https://www.facebook.com/groups/IL.hot.pepper.grow" target="_blank">Join us</a>
                                 </p>
                             </div>
@@ -220,9 +231,12 @@
                         </div>
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">Why? I wanted to reduce the setup time for a project that will use Spring and REST endpoints.<br>
-                                    So I set up a small repository with Spring boot, Spring web and maven, it is ready with implemented GET/POST/PUT/DELETE
-                                    endpoints, basic unit testing, autowired model and even a postman collection for faster manual testing setup.<br>
+                                <p class="text-muted">
+                                    <b>What?</b> A skeleton/template repository, set up with springboot, with implemented REST endpoints.<br>
+                                    <b>Why?</b> I wanted to reduce the setup time for projects that use Spring and REST endpoints.<br>
+                                    <b>How?</b> I set up a small repository with Spring boot, Spring web and maven, it is ready with implemented GET/POST/PUT/DELETE
+                                    endpoints, a controller with autowired model and a request/response objects, unit testing samples with Mockito, OpenAPI Specification (OAS) yaml
+                                    and even a postman collection for faster manual testing setup.<br>
                                     <a href="https://github.com/asafmaoz1234/skeleton-spring-mvn-controller" target="_blank">github repository</a></p>
                             </div>
                         </div>
@@ -236,13 +250,19 @@
                     <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">Why? I wanted to try GitHub actions and streamline deployment from GitHub to AWS.<br>
-                                    Action to deploy the jar to an AWS lambda -
-                                    <a href="https://github.com/marketplace/actions/aws-lambda-update-jar-zip" target="_blank">view in marketplace</a>.
-                                    Action to build, test, package and deploy on merged PR to main.
-                                    <a href="https://github.com/asafmaoz1234/Its-snorkeling-time/blob/main/.github/workflows/deploy.yaml" target="_blank">view action</a><br>
-                                    Action to sync S3 bucket with modified files and invalidate cloudFront distribution on merged PR.<br>
+                                <p class="text-muted">
+                                    <b>What?</b> Faster and safer deployment using github actions workflows.<br>
+                                    <b>Why?</b> Eliminate the process of manually updating the weather lambda code or uploading the website files to S3
+                                    and invalidating the distribution.<br>
+                                    And, I wanted to try GitHub actions for myself.<br>
+                                    <b>How?</b>
+                                    Action to sync S3 bucket with modified files and invalidate cloudFront distribution after a merged pull request to main branch.
                                     <a href="https://github.com/asafmaoz1234/website/blob/main/.github/workflows/deploy.yml" target="_blank">view action</a><br>
+                                    Action to deploy a jar from target folder to an AWS lambda -
+                                    <a href="https://github.com/marketplace/actions/aws-lambda-update-jar-zip" target="_blank">view in marketplace</a>.<br>
+                                    Action to build, test, package and use the market place actions for updating the lambda on a merged pull request to main.
+                                    <a href="https://github.com/asafmaoz1234/Its-snorkeling-time/blob/main/.github/workflows/deploy.yaml" target="_blank">view action</a><br>
+
                                 </p>
                             </div>
                         </div>
