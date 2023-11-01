@@ -88,9 +88,9 @@
                         <ul>
                             <li><p><a href="#serverless_site">AWS-Powered Serverless Website</a> Highly scalable, cost-effective, low latency website.
                                 <br><span class="text-teal text-small"> AWS S3 / CloudFront / Route53 / HTML / CSS / CI-CD</span></p></li>
-                            <li><p><a href="#arduino_diy">Do it yourself irrigation</a> - Automated irrigation without a water connection.
+                            <li><p><a href="#arduino_diy">Do it yourself irrigation</a> Automated irrigation without a water connection.
                                 <br><span class="text-teal text-small"> Arduino / C++ / DIY</span></p></li>
-                            <li><p><a href="#beach_time">SeaVision Pro</a> A service to notify me when sea visibility should be great.
+                            <li><p><a href="#beach_time">SeaVision Pro</a> Data collector module within SeaVision Pro.
                                 <br><span class="text-teal text-small"> JAVA / AWS Lambda / reactive / CloudWatch / CI-CD</span></p></li>
                             <li><p><a href="#peppers">Hot peppers</a> - A community for Israeli super hot pepper heads.
                                 <br><span class="text-teal text-small"> Social / Hot peppers / Community</span></p></li>
@@ -119,36 +119,29 @@
                         </div>
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">
-                                    Embarking on the journey of creating my own website was a decision fueled by curiosity, and a commitment to efficiency.<br>
-                                    In this project, I decided to craft a <strong>serverless website</strong> hosted on  <strong>AWS</strong>.<br>
-                                    The content is stored on <strong>S3</strong> and supercharged by <strong>CloudFront</strong>.<br>
-                                    <strong>Route53</strong> is used for DNS management and <strong>ACM</strong> used for SSL certificate.<br>
-                                    For updating content I wrote an efficient <strong>CI/CD</strong> process that automates deployment of content to AWS S3 and ensures a <strong>seamless experience</strong> by automatically clearing the CDN cache.<br>
-                                    This dynamic stack not only supercharges content delivery but also comes with a surprisingly budget-friendly price tag—less than <strong>1$ a month</strong>.<br>
-                                    <a href="https://github.com/asafmaoz1234/website" target="_blank">github repository (html-css only)</a></p>
+                                <p class="text-muted">Embarking on the journey of creating my own website was a decision fueled by curiosity and a commitment to efficiency.</p>
+                                <p class="text-muted">For this project, I decided to craft a <strong>serverless website</strong> hosted on <strong>AWS</strong>.</p>
+                                <p class="text-muted">The content is stored on <strong>S3</strong> and supercharged by <strong>CloudFront</strong>. <strong>Route53</strong> is used for DNS management and <strong>ACM</strong> used for SSL certificate.</p>
+                                <p class="text-muted">For updating content, I wrote an efficient <strong>CI/CD process</strong> that automates deployment of content to <strong>AWS S3</strong> and ensures a seamless experience by automatically clearing the CDN cache.</p>
+                                <p class="text-muted">This dynamic stack not only supercharges content delivery but also comes with a surprisingly budget-friendly price tag—less than <strong>1$ a month</strong>.</p>
+                                <a href="https://github.com/asafmaoz1234/website" target="_blank">Explore the Code on GitHub</a></p>
                             </div>
                         </div>
                     </div>
 
                     <br><hr id="arduino_diy" class="project-separator" style="margin: auto;"/><br>
                     <div>
-                        <h4 style="display:inline">Do it yourself irrigation</h4>
+                        <h4 style="display:inline">Do it yourself irrigation <span style="font-size: 1rem;">Budget-Friendly Automated Irrigation System!</span></h4>
                         <p class="text-teal text-small">Arduino / C++ / DIY</p>
                     </div>
                     <div class="row g-0 portfolio-reverse align-items-center" data-aos="fade-left" data-aos-delay="100">
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">
-                                    <b>What?</b> Automated irrigation without a water connection.<br>
-                                    <b>Why?</b> I did not have a water connection near my pepper plants, and understanding how important
-                                    is regulated watering, I needed an automated way to water my pepper plants even when I forget or out of town.<br>
-                                    <b>How?</b>
-                                    I used Arduino Uno, which is an amazing low-cost microcontroller, wrote a simple program to schedule activation and connected the arduino to a 12V water pump
-                                    and the pump to ~40 liter of water (5 days of watering during summer).<br>
-                                    With components that cost less the 50$, I got an automated irrigation anywhere I need.<br>
-                                    <a href="https://youtu.be/uQyjRWnla7U" target="_blank">short video</a> (it only looks like a bomb)<br>
-                                    <a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">github repository for the schedule program</a>
+                                <p class="text-muted">An <strong>automated irrigation</strong> system in a water-challenged environment—a creation that ensures your plants stay hydrated, regardless of a direct water connection.</p>
+                                <p class="text-muted">Using components like the <strong>Arduino Uno</strong> (an amazing low-cost microcontroller), a <strong>12V water pump</strong>, and a <strong>40-liter water container</strong>, this system offers a lifeline of regulated hydration for up to 5 days, so you won't forget to water your super hot pepper plants and can leave home without a worry.</p>
+                                <p class="text-muted">All for a remarkably affordable price of less than <strong>$50</strong>.</p>
+                                <a href="https://youtu.be/uQyjRWnla7U" target="_blank">Watch the Irrigation System in Action</a><br>
+                                 <a href="https://github.com/asafmaoz1234/irrigationDIY" target="_blank">Explore the Code on GitHub</a>
                                 </p>
                             </div>
                         </div>
@@ -160,7 +153,7 @@
 
                     <br><hr id="beach_time" class="project-separator" style="margin: auto;"/><br>
                     <div>
-                        <h4 style="display:inline">SeaVision Pro</h4><h6>data fetcher</h6>
+                        <h4 style="display:inline">SeaVision Pro <span style="font-size: 1rem;">Data Collector</span></h4>
                         <p class="text-teal text-small">JAVA / AWS Lambda / reactive / CloudWatch / CI-CD</p>
                     </div>
                     <div class="row g-0"  data-aos="fade-right" data-aos-delay="100">
@@ -170,17 +163,14 @@
                         </div>
                         <div class="col-md-6 d-flex">
                             <div class="m-1 mt-md-2">
-                                <p class="text-muted">
-                                    <b>What?</b> A service to notify me when sea visibility should be great.<br>
-                                    <b>Why?</b> Instead of actively checking for consecutive days with low waves, which indicates visibility is good enough for snorkeling
-                                    I want to get notified on it.<br>
-                                    <b>How?</b>
-                                    <u>AWS Lambda</u> - Query a weather service api for measurements in specific geolocation coordinates
-                                    and according to a set of rules determine if it should notify me.<br>
-                                    <u>SQS</u> - get the notifications events and trigger a different lambda that handles emails and notifications.<br>
-                                    <u>CloudWatch</u> - scheduled event that triggers the lambda once a day.<br>
-                                    <u>github actions</u> - for CI-CD and testing on pull requests.<br>
-                                    <a href="https://github.com/asafmaoz1234/seaVisionDataFetcher" target="_blank">github repository</a></p>
+                                <p class="text-muted">The Data collector module within <strong>SeaVision Pro</strong> is a sophisticated component designed
+                                    to provide <strong>SeaVision Pro</strong> with the latest weather information for selected coastal locations.
+                                Its primary goal is to fetch and store accurate and current weather data.</p>
+                                <p class="text-muted">The module runs as an <strong>AWS Lambda</strong>, triggered by a <strong>CloudWatch</strong> event, and data is securely stored in our aws hosted <strong>postgres</strong> database.<br>
+                                    The projects Uses <strong>Spring Boot</strong>, <strong>reactive core</strong> and <strong>Java 17</strong>.<br>
+                                <strong>GitHub Actions</strong> are utilized for CI/CD and running tests on pull requests.<br>
+                                    Dockerized for local development.</p>
+                                <a href="https://github.com/asafmaoz1234/seaVisionDataFetcher" target="_blank">Explore the Code on GitHub</a></p>
                             </div>
                         </div>
                     </div>
