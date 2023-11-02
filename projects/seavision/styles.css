@@ -1,38 +1,58 @@
-/* Add CSS styles for your ocean-themed page here */
-
-body {
-    font-family: Arial, sans-serif;
+/* Reset some default styles */
+html, body {
     margin: 0;
     padding: 0;
 }
 
+/* Styles for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Styles for the header section */
 header {
     background-color: #0077b6;
     color: #fff;
     text-align: center;
-    padding: 20px;
+    padding: 20px 0;
 }
 
-/* Define styles for section-1, section-2, section-3 */
-.section-1,
-.section-2,
-.section-3 {
+/* Styles for Section 1 */
+.section-1 {
+    background-image: url('/images/profile.jpeg');
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
-    padding: 50px 0;
+    text-align: center;
+    padding: 100px 0;
     color: #fff;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+/* Styles for Section 2 (expanded) */
+.section-2-expanded {
+    background-image: url('/images/mid-resume-index-lrg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
 }
 
-/* Style the select box, table, and form elements as needed */
+/* Styles for Section 3 (expanded) */
+.section-3-expanded {
+    background-image: url('/images/profile.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
 
-/* Add other specific styles for your sections here */
-
+/* Styles for the footer */
 footer {
     background-color: #0077b6;
     color: #fff;

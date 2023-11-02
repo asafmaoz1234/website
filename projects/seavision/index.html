@@ -12,12 +12,15 @@
     <p>Your Trusted Source for Coastal Data</p>
 </header>
 
-<!--<section class="section-1" style="background-image: url('/images/profile.jpeg');">-->
-<!--    &lt;!&ndash; Section 1 content goes here &ndash;&gt;-->
-<!--</section>-->
+<section class="section-1" style="background-image: url('/images/profile.jpeg');">
+    <div class="container text-center">
+        <h2>Our Services</h2>
+        <p>Highly scalable, cost-effective, low latency website.</p>
+    </div>
+</section>
 
-<section class="section-2" style="background-image: url('/images/profile.jpeg');">
-    <div class="container">
+<section class="section-2-expanded" style="background-image: url('/images/mid-resume-index-lrg.png');">
+    <div class="container text-center">
         <h2>Select Your Coastal Area</h2>
         <select id="coastal-area-selector">
             <option value="area1">Coastal Area 1</option>
@@ -25,13 +28,16 @@
             <option value="area3">Coastal Area 3</option>
             <option value="area4">Coastal Area 4</option>
         </select>
-        <table id="results-table">
+        <div id="results-placeholder">
+            <p>Select a coastal area to view results.</p>
+        </div>
+        <table id="results-table" style="display: none; margin: 0 auto;">
             <!-- Table data will be populated dynamically using JavaScript -->
         </table>
     </div>
 </section>
 
-<section class="section-3" style="background-image: url('/images/profile.jpeg');">
+<section class="section-3-expanded" style="background-image: url('/images/profile.jpeg');">
     <div class="container">
         <h2>Register for Coastal Services</h2>
         <form id="registration-form">
