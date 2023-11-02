@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SeaVision Pro - Coastal Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+    <h1>SeaVision Pro - Coastal Services</h1>
+    <p>Your Trusted Source for Coastal Data</p>
+</header>
+
+<!--<section class="section-1" style="background-image: url('/images/profile.jpeg');">-->
+<!--    &lt;!&ndash; Section 1 content goes here &ndash;&gt;-->
+<!--</section>-->
+
+<section class="section-2" style="background-image: url('/images/profile.jpeg');">
+    <div class="container">
+        <h2>Select Your Coastal Area</h2>
+        <select id="coastal-area-selector">
+            <option value="area1">Coastal Area 1</option>
+            <option value="area2">Coastal Area 2</option>
+            <option value="area3">Coastal Area 3</option>
+            <option value="area4">Coastal Area 4</option>
+        </select>
+        <table id="results-table">
+            <!-- Table data will be populated dynamically using JavaScript -->
+        </table>
+    </div>
+</section>
+
+<section class="section-3" style="background-image: url('/images/profile.jpeg');">
+    <div class="container">
+        <h2>Register for Coastal Services</h2>
+        <form id="registration-form">
+            <label for="coastal-service">Select Coastal Service:</label>
+            <select id="coastal-service" name="coastal-service">
+                <option value="service1">Service 1</option>
+                <option value="service2">Service 2</option>
+                <option value="service3">Service 3</option>
+            </select>
+
+            <label for="email">Enter Your Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <!-- Footer content goes here -->
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
