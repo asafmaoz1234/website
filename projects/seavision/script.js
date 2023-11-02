@@ -30,13 +30,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to populate the results table
     function populateTable(data) {
         resultsTable.innerHTML = ''; // Clear previous data
-        // Create table rows with data
-        data.forEach(entry => {
+        // Create table rows with data, limiting to the first 10 entries
+        for (let i = 0; i < Math.min(10, data.length); i++) {
+            const entry = data[i];
             const row = resultsTable.insertRow();
             row.insertCell(0).textContent = entry.userId;
             row.insertCell(1).textContent = `Wave Height: ${entry.id} meters`;
             row.insertCell(2).textContent = `Weather: ${entry.title}`;
-        });
+            if (entry.id < 5) {
+                row.classList.add('entry-smaller');
+            } else {
+                row.classList.add('entry-larger');
+            }
+        }
     }
 
     // Event listener for coastal area selection
@@ -50,15 +56,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add an event listener to the select element
     coastalAreaSelector.addEventListener('change', function() {
-        // Check if a coastal area is selected
-        if (coastalAreaSelector.value !== 'default') {
+        // Check if "Choose location" is selected
+        if (coastalAreaSelector.value === 'default') {
+            // If "Choose location" is selected, clear the table and show the placeholder
+            resultsTable.style.display = 'none'; // Hide the table
+            resultsPlaceholder.style.display = 'block'; // Display the placeholder
+            // Clear the table content by removing all rows (except the header row)
+            const rows = resultsTable.querySelectorAll('tr:not(:first-child)');
+            rows.forEach(row => row.remove());
+        } else {
             // If a coastal area is selected, show the results table and hide the placeholder
             resultsTable.style.display = 'table'; // Display the table as a table
             resultsPlaceholder.style.display = 'none'; // Hide the placeholder
-        } else {
-            // If the default option is selected, hide the results table and show the placeholder
-            resultsTable.style.display = 'none'; // Hide the table
-            resultsPlaceholder.style.display = 'block'; // Display the placeholder
+            // Here, you can populate the table with data for the selected area
+            // Example: You can add rows and cells to display results.
         }
     });
 

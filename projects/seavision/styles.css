@@ -59,3 +59,31 @@ footer {
     text-align: center;
     padding: 10px;
 }
+/* Add CSS for the table container to limit its width */
+#results-table-container {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the table container horizontally */
+}
+
+/* Add CSS for the table */
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#results-table th, #results-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+
+/* Add CSS to set background color based on entry.id value */
+#results-table tbody tr.entry-smaller {
+    background-color: lightblue; /* Light blue background for smaller values */
+}
+
+#results-table tbody tr.entry-larger {
+    background-color: red; /* Red background for larger values */
+}
