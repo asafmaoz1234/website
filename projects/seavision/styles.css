@@ -21,7 +21,8 @@ header {
 
 /* Styles for Section 1 */
 .section-1 {
-    background-image: url('/images/profile.jpeg');
+    /*background-image: url('/images/profile.jpeg');*/
+    background-color: #0077b6;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
