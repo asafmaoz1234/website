@@ -19,6 +19,38 @@ header {
     padding: 20px 0;
 }
 
+
+/* Navigation Bar Styles */
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-bar li {
+    float: left;
+}
+
+.nav-bar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: #333;
+    border: none; /* Remove borders */
+    cursor: pointer; /* Optional: Changes the cursor on hover */
+}
+
+/* Change the link color to #111 (black) on hover */
+.nav-bar li a:hover {
+    background-color: #111;
+}
+
 /* Styles for Section 1 */
 .section-1 {
     /*background-image: url('/images/profile.jpeg');*/
