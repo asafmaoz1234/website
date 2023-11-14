@@ -21,7 +21,7 @@
         </dl>
         </li>
         <p align="center">
-            <img src="https://github.com/asafmaoz1234/website/blob/main/images/site_setup_architecture.png">
+            <img src="https://asafmaoz.com/images/websiteSysDesign.png">
         </p>
    <p>The main HTML-CSS is from several free resume template I tweaked and combined into one.</p></li>
   
