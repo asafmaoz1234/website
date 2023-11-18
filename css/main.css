@@ -345,3 +345,9 @@ footer a:not(.nav-link) {
   font-size: 0.8rem; /* Font size for description */
   margin: 0;
 }
+/* Media query for screens smaller than 768px (adjust as needed) */
+@media screen and (max-width: 768px) {
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 for smaller screens */
+  }
+}
