@@ -307,3 +307,41 @@ footer a:not(.nav-link) {
 
 .img-raised {
   box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0.3); }
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.button-item {
+  background-color: #007BFF; /* Light blue color */
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove default link underline */
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.button-item:hover {
+  background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.button-item h3 {
+  font-size: 1rem; /* Button title font size */
+  margin: 0;
+  padding-bottom: 5px; /* Add some spacing between title and description */
+}
+
+.button-tags {
+  font-size: 0.8rem; /* Font size for tags */
+}
+
+.button-item p {
+  font-size: 0.8rem; /* Font size for description */
+  margin: 0;
+}
