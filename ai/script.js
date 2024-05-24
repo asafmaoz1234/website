@@ -8,9 +8,16 @@ document.addEventListener('DOMContentLoaded', function () {
         if (userInput.trim() === '') return;
 
         appendMessage('You', userInput);
-
+        var inputText = encodeURIComponent(userInput);
         // Make a request to the server
-        fetch(`/chat?message=${encodeURIComponent(userInput)}`)
+        fetch(`https://ai.asafmaoz.com/chat`, {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ text: inputText })
+        })
+
             .then(response => response.json())
             .then(data => {
                 const botReply = data.reply || 'I have no response.';
