@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             .then(response => response.json())
             .then(data => {
-                const botReply = data.reply || 'I have no response.';
+                const botReply = data.message || 'I have no response.';
                 appendMessage('ChatGPT Bot', botReply);
             })
             .catch(error => {
