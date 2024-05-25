@@ -18,7 +18,8 @@ function sendData() {
         .catch(error => console.error('Error:', error));
 }
 
-function parseResponse(workoutPlan) {
+function parseResponse(workoutPlanText) {
+    const workoutPlan = JSON.parse(workoutPlanText);
     const container = document.getElementById('serverResponse');
     // Create and append the title
     const title = document.createElement('h1');
