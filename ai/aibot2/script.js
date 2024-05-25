@@ -13,21 +13,38 @@ function sendData() {
     })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('serverResponse').value = data.message;
+            parseResponse(data.message);
         })
         .catch(error => console.error('Error:', error));
 }
 
-// document.getElementById('sendButton').addEventListener('click', function() {
-//     const userInput = document.getElementById('userInput').value;
-//     const serverResponseArea = document.getElementById('serverResponse');
-//
-//     // Simulate a server response (replace this with actual server call if needed)
-//     const simulatedResponse = `Server: You said "${userInput}"`;
-//
-//     // Display the response
-//     serverResponseArea.value += `You: ${userInput}\n${simulatedResponse}\n\n`;
-//
-//     // Clear the user input area
-//     document.getElementById('userInput').value = '';
-// });
+function parseResponse(workoutPlan) {
+    const container = document.getElementById('serverResponse');
+    // Create and append the title
+    const title = document.createElement('h1');
+    title.textContent = workoutPlan.workout_plan.title;
+    container.appendChild(title);
+
+    // Create and append the description
+    const description = document.createElement('p');
+    description.textContent = workoutPlan.workout_plan.description;
+    container.appendChild(description);
+
+    // Create and append the focus
+    const focus = document.createElement('p');
+    focus.textContent = `Focus: ${workoutPlan.workout_plan.focus}`;
+    container.appendChild(focus);
+
+    // Create and append the workout schedule
+    const scheduleTitle = document.createElement('h2');
+    scheduleTitle.textContent = 'Workout Schedule';
+    container.appendChild(scheduleTitle);
+
+    const scheduleList = document.createElement('ul');
+    for (const [day, activity] of Object.entries(workoutPlan.workout_plan.workout_schedule)) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${day.replace('_', ' ')}: ${activity}`;
+        scheduleList.appendChild(listItem);
+    }
+    container.appendChild(scheduleList);
+}
