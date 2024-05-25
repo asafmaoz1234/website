@@ -23,17 +23,17 @@ function parseResponse(workoutPlanText) {
     const container = document.getElementById('serverResponse');
     // Create and append the title
     const title = document.createElement('h1');
-    title.textContent = workoutPlan.workout_plan.title;
+    title.textContent = workoutPlan.title;
     container.appendChild(title);
 
     // Create and append the description
     const description = document.createElement('p');
-    description.textContent = workoutPlan.workout_plan.description;
+    description.textContent = workoutPlan.description;
     container.appendChild(description);
 
     // Create and append the focus
     const focus = document.createElement('p');
-    focus.textContent = `Focus: ${workoutPlan.workout_plan.focus}`;
+    focus.textContent = `Focus: ${workoutPlan.focus}`;
     container.appendChild(focus);
 
     // Create and append the workout schedule
@@ -42,7 +42,7 @@ function parseResponse(workoutPlanText) {
     container.appendChild(scheduleTitle);
 
     const scheduleList = document.createElement('ul');
-    for (const [day, activity] of Object.entries(workoutPlan.workout_plan.workout_schedule)) {
+    for (const [day, activity] of Object.entries(workoutPlan.workout_schedule)) {
         const listItem = document.createElement('li');
         listItem.textContent = `${day.replace('_', ' ')}: ${activity}`;
         scheduleList.appendChild(listItem);
