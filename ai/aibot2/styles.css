@@ -47,3 +47,19 @@ textarea {
 #sendButton:hover {
     background-color: #45a049;
 }
+
+#serverResponse {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 1.5;
+    white-space: pre-wrap; /* Preserve whitespace formatting */
+    overflow-y: auto; /* Add vertical scroll bar if content overflows */
+    box-sizing: border-box;
+}
+
