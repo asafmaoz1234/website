@@ -13,46 +13,48 @@ function sendData() {
     })
         .then(response => response.json())
         .then(data => {
-            document.getElementById('serverResponse').value = JSON.stringify(data.message, null, 2); // Display raw response in textarea
             parseResponse(data.message);
         })
         .catch(error => console.error('Error:', error));
 }
 
 function parseResponse(workoutPlanText) {
-    // const workoutPlan = JSON.parse(workoutPlanText);
-    // const container = document.getElementById('serverResponse');
-    // container.value = ''; // Clear previous content
-    //
-    // // Create the formatted response string
-    // let formattedResponse = `Title: ${workoutPlan.title}\n\n`;
-    // formattedResponse += `Description: ${workoutPlan.description}\n\n`;
-    // formattedResponse += `Focus: ${workoutPlan.focus}\n\n`;
-    // formattedResponse += `Workout Schedule:\n`;
-    // for (const [day, activity] of Object.entries(workoutPlan.workout_schedule)) {
-    //     formattedResponse += `  ${day.replace('_', ' ')}: ${activity}\n`;
-    // }
-    //
-    // // Set the formatted response to the textarea
-    // container.value = formattedResponse;
 
     const workoutPlan = JSON.parse(workoutPlanText);
-    const container = document.getElementById('responseDiv');
-    container.innerHTML = '';
+    const container = document.getElementById('serverResponse');
+    container.classList.add('not-empty');
+    container.textContent = ''; // Clear previous content
+    const disclaimer = document.getElementById('disclaimerDiv');
+    disclaimer.style.display = "none";
 
     // Create and append the title
-    const title = document.createElement('h1');
+    const titleH = document.createElement('h1');
+    titleH.textContent = 'Your Custom Workout Plan';
+    container.appendChild(titleH);
+
+    const title = document.createElement('p');
+    if (workoutPlan.title === undefined || workoutPlan.title === '') {
+        title.textContent = 'Your Custom Workout Plan';
+    }
     title.textContent = workoutPlan.title;
     container.appendChild(title);
 
     // Create and append the description
+    const generalDesc = document.createElement('h2');
+    generalDesc.textContent = 'Plan Description';
+    container.appendChild(generalDesc);
+
     const description = document.createElement('p');
     description.textContent = workoutPlan.description;
     container.appendChild(description);
 
     // Create and append the focus
+    const focusTitle = document.createElement('h2');
+    focusTitle.textContent = 'Plan Focus';
+    container.appendChild(focusTitle);
+
     const focus = document.createElement('p');
-    focus.textContent = `Focus: ${workoutPlan.focus}`;
+    focus.textContent = `${workoutPlan.focus}`;
     container.appendChild(focus);
 
     // Create and append the workout schedule
@@ -67,5 +69,6 @@ function parseResponse(workoutPlanText) {
         scheduleList.appendChild(listItem);
     }
     container.appendChild(scheduleList);
+    disclaimer.style.display = "block";
 
 }
