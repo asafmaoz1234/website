@@ -28,7 +28,11 @@ function parseResponse(workoutPlanText) {
     disclaimer.style.display = "none";
 
     // Create and append the title
-    const title = document.createElement('h1');
+    const titleH = document.createElement('h1');
+    titleH.textContent = 'Your Custom Workout Plan';
+    container.appendChild(titleH);
+
+    const title = document.createElement('p');
     if (workoutPlan.title === undefined || workoutPlan.title === '') {
         title.textContent = 'Your Custom Workout Plan';
     }
@@ -36,13 +40,21 @@ function parseResponse(workoutPlanText) {
     container.appendChild(title);
 
     // Create and append the description
+    const generalDesc = document.createElement('h2');
+    generalDesc.textContent = 'Plan Description';
+    container.appendChild(generalDesc);
+
     const description = document.createElement('p');
     description.textContent = workoutPlan.description;
     container.appendChild(description);
 
     // Create and append the focus
+    const focusTitle = document.createElement('h2');
+    focusTitle.textContent = 'Plan Focus';
+    container.appendChild(focusTitle);
+
     const focus = document.createElement('p');
-    focus.textContent = `Focus: ${workoutPlan.focus}`;
+    focus.textContent = `${workoutPlan.focus}`;
     container.appendChild(focus);
 
     // Create and append the workout schedule
