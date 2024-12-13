@@ -2,21 +2,21 @@
 <html lang="en" data-wf-page="6734d4336c8f76142b32e561" data-wf-site="6734cc2be8b3b13f37826a3c">
 <head>
   <meta charset="utf-8">
-  <title>SeaVisionPro-Deep Dive</title>
+  <title>DIY Message Publishing Service</title>
 
-  <meta content="SeaVisionPro - Deep Dive" property="og:title">
-  <meta property="og:description" content="The technical journey of creating SeaVisionPro, a website designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts." />
-  <meta name="title" content="SeaVisionPro - Deep Dive">
-  <meta name="description" content="The technical journey of creating SeaVisionPro, a website designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts." />
-  <meta property="og:url" content="https://asafmaoz.com/projects/seavisionpro.html" />
-  <meta property="og:image" content="https://asafmaoz.com/images/instantclarityfeature-p-500.webp"/>
+  <meta property="og:title" content="DIY Message Publishing Service">
+  <meta property="og:description" content="Automating Notifications with an API-Powered Message Publishing Service." />
+  <meta name="title" content="Custom Message Publishing Service">
+  <meta name="description" content="Automating Notifications with an API-Powered Message Publishing Service." />
+  <meta property="og:url" content="https://asafmaoz.com/projects/custommessageservice.html" />
+  <meta property="og:image" content="https://asafmaoz.com/images/placeholder-image.svg"/> <!-- TODO change image -->
   <meta property="og:type" content="Blog Post" />
   <meta property="og:site_name" content="asafmaoz" />
 
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:url" content="https://asafmaoz.com/projects/seavisionpro.html"/>
-  <meta name="twitter:title" content="Check out this technical deep dive to SeaVisionPro!"/>
-  <meta name="twitter:description" content="The technical journey of creating SeaVisionPro, a website designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts." />
+  <meta name="twitter:url" content="https://asafmaoz.com/projects/custommessageservice.html"/>
+  <meta name="twitter:title" content="DIY Message Publishing Service"/>
+  <meta name="twitter:description" content="Automating Notifications with an API-Powered Message Publishing Service." />
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="../css/normalize.css" rel="stylesheet" type="text/css">
@@ -70,6 +70,14 @@ a {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.code-block {
+  background: black;
+  color: lightblue;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: monospace;
+}
+
 </style>
     </div>
     <div data-collapse="medium" data-animation="default" data-duration="400" fs-scrolldisable-element="smart-nav" data-easing="ease" data-easing2="ease" role="banner" class="navbar1_component w-nav">
@@ -102,10 +110,10 @@ a {
               <div class="blog-post_header_component">
                 <div class="w-layout-grid blog-post_header_content">
                   <div class="blog-post_header_title-wrapper">
-                    <h1 class="heading-style-h2" style="padding-bottom: 10px">SeaVisionPro - Deep Dive</h1>
-                    <h1 class="text-align-left text-size-medium text-weight-light">Dive into the technical journey of creating SeaVisionPro.<br>
-                      Designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts.</h1>
-                    <h1 class="text-align-left text-size-medium text-weight-light">From infrastructure setup to algorithm development, this post walks through the challenges, decisions, and final architecture of the platform.</h1>
+                    <h1 class="heading-style-h2" style="padding-bottom: 10px">DIY Message Publishing Service</h1>
+                    <h1 class="text-align-left text-size-medium text-weight-bold">Automating Notifications with an API-Powered Message Publishing Service.</h1>
+                    <h1 class="text-align-left text-size-medium text-weight-light">a powerful, reusable component in my toolkit. Capable of automating notifications across different projects.<br>
+                      It’s fast, easy to set up, and ideal for lightweight applications that need dynamic notifications or alerts.</h1>
                     <div class="margin-top margin-medium">
                       <div class="blog-post_header_content-top">
                         <div class="blog-post_header_share-wrapper">
@@ -113,19 +121,19 @@ a {
                             <div class="text-weight-semibold">Share this post</div>
                           </div>
                           <div class="w-layout-grid blog-post_body_share">
-                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/seavisionpro.html" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/custommessageservice.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                               <div class="icon-embed-xsmall w-embed">
                                 <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3C3.67157 3 3 3.67157 3 4.5V19.5C3 20.3284 3.67157 21 4.5 21H19.5C20.3284 21 21 20.3284 21 19.5V4.5C21 3.67157 20.3284 3 19.5 3H4.5ZM8.52076 7.00272C8.52639 7.95897 7.81061 8.54819 6.96123 8.54397C6.16107 8.53975 5.46357 7.90272 5.46779 7.00413C5.47201 6.15897 6.13998 5.47975 7.00764 5.49944C7.88795 5.51913 8.52639 6.1646 8.52076 7.00272ZM12.2797 9.76176H9.75971H9.7583V18.3216H12.4217V18.1219C12.4217 17.742 12.4214 17.362 12.4211 16.9819V16.9818V16.9816V16.9815V16.9812C12.4203 15.9674 12.4194 14.9532 12.4246 13.9397C12.426 13.6936 12.4372 13.4377 12.5005 13.2028C12.7381 12.3253 13.5271 11.7586 14.4074 11.8979C14.9727 11.9864 15.3467 12.3141 15.5042 12.8471C15.6013 13.1803 15.6449 13.5389 15.6491 13.8863C15.6605 14.9339 15.6589 15.9815 15.6573 17.0292V17.0294C15.6567 17.3992 15.6561 17.769 15.6561 18.1388V18.3202H18.328V18.1149C18.328 17.6629 18.3278 17.211 18.3275 16.7591V16.759V16.7588C18.327 15.6293 18.3264 14.5001 18.3294 13.3702C18.3308 12.8597 18.276 12.3563 18.1508 11.8627C17.9638 11.1286 17.5771 10.5211 16.9485 10.0824C16.5027 9.77019 16.0133 9.5691 15.4663 9.5466C15.404 9.54401 15.3412 9.54062 15.2781 9.53721L15.2781 9.53721L15.2781 9.53721C14.9984 9.52209 14.7141 9.50673 14.4467 9.56066C13.6817 9.71394 13.0096 10.0641 12.5019 10.6814C12.4429 10.7522 12.3852 10.8241 12.2991 10.9314L12.2991 10.9315L12.2797 10.9557V9.76176ZM5.68164 18.3244H8.33242V9.76733H5.68164V18.3244Z" fill="CurrentColor"></path>
                                 </svg></div>
                             </a>
-                            <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/seavisionpro.html&text=Check out this technical deep dive to SeaVisionPro!" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/custommessageservice.html&text=Check out what it takes to set up a Message Publishing Service!" target="_blank" class="blog-post_body_social-link w-inline-block">
                               <div class="icon-embed-xsmall w-embed">
                                 <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M17.1761 4H19.9362L13.9061 10.7774L21 20H15.4456L11.0951 14.4066L6.11723 20H3.35544L9.80517 12.7508L3 4H8.69545L12.6279 9.11262L17.1761 4ZM16.2073 18.3754H17.7368L7.86441 5.53928H6.2232L16.2073 18.3754Z" fill="CurrentColor"></path>
                                 </svg></div>
                             </a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com/projects/seavisionpro.html" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com.com/projects/custommessageservice.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                               <div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22 12.0611C22 6.50451 17.5229 2 12 2C6.47715 2 2 6.50451 2 12.0611C2 17.0828 5.65684 21.2452 10.4375 22V14.9694H7.89844V12.0611H10.4375V9.84452C10.4375 7.32296 11.9305 5.93012 14.2146 5.93012C15.3088 5.93012 16.4531 6.12663 16.4531 6.12663V8.60261H15.1922C13.95 8.60261 13.5625 9.37822 13.5625 10.1739V12.0611H16.3359L15.8926 14.9694H13.5625V22C18.3432 21.2452 22 17.083 22 12.0611Z" fill="CurrentColor"></path>
                               </svg></div>
@@ -135,7 +143,7 @@ a {
                       </div>
                     </div>
                   </div>
-                  <div class="blog-post_header_image-wrapper"><img loading="eager" src="../images/projects/seavisionpro-head.webp" alt="dor beach turtle" style="border-radius: 0.5rem" class="blog-post_header_image"></div>
+                  <div class="blog-post_header_image-wrapper"><img loading="eager" src="../images/placeholder-image.svg" alt="dor beach turtle" style="border-radius: 0.5rem" class="blog-post_header_image"></div>
                 </div>
               </div>
             </div>
@@ -150,101 +158,137 @@ a {
                 <div class="max-width-large align-center">
                   <div class="blog-post_body_content-wrapper">
                     <div class="text-rich-text w-richtext">
-                      <h3>The Inspiration Behind SeaVisionPro</h3>
-                      <p>I love the sea, and I’ve always been fascinated by the underwater world.<br>
-                        Living a bit farther from the beach, I couldn`t simply check visibility when I woke up, planning a snorkeling trip required foresight.<br>
-                        This sparked my curiosity, and I began researching how weather metrics influence underwater visibility.
-                        I crafted an algorithm to analyze these metrics and ran it on aws lambda which emailed me using SQS and SNS the night before, letting me know if the next day would be ideal for snorkeling.</p>
-                      <p>For a year, I used this simple system to plan early morning trips, giving me plenty of time to prepare my gear and get to the beach.<br>
-                        The experience was so helpful and exciting that I realized it could benefit others, leading to the creation of SeaVisionPro — A platform to share this convenience and joy with the wider diving and snorkeling community.</p>
+                      <h3>Why Craft A Message Publishing Service</h3>
+                      <p>As a developer, experimenting with new tools and looking to set up small projects after hours, I often find myself in need of a quick, efficient way to send notifications.<br>
+                        Whether it’s for testing an alerting feature, getting notifications from a backend only process or adding a contact us or subscribe feature to a website, having an easy-to-use notification service is very useful.<br>
+                        That’s why I set up a Message Publishing process, triggered by an AWS API gateway endpoint.<br>
+                        leveraging AWS echo system and free tier, I crafted a powerful, reusable component, capable of automating notifications across different projects and sources.
+                      </p>
                       <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="../images/projects/seavisionpro-result-table.png" alt="seavisionpro results section"></div>
-                        <figcaption>Results section of SeaVisionPro</figcaption>
+                        <div><img loading="lazy" src="../images/projects/custommessageservice-process-flow.png" alt="general process and components"></div>
+                        <figcaption>General process and components</figcaption>
                       </figure>
 
-                      <h3>Website Infrastructure Setup</h3>
-                      <h6>Focused on AWS services stack, I wanted a simple, resilient, cost-effective setup to host and serve the frontend section of SeaVisionPro.</h6>
-                      <h7 class="text-weight-bold">Key Components:</h7>
+                      <h3>Infrastructure and Process Explained</h3>
+                      <h6>Focused on AWS services stack, I wanted a simple, resilient, cost-effective setup for automating notifications across different projects and sources.</h6>
+                      <p>
+                        The process starts at an <strong>api gateway</strong>  POST /sendMessage endpoint which serves as a universal notification sender.<br>
+                        This endpoint passes any incoming request to an <strong>SQS queue</strong> I very originally named `email_queue`.<br>
+                        From there, the message triggers an <strong>AWS Lambda</strong> function that parses the incoming payload and publishes the information to an <strong>SNS topic</strong>.<br>
+                        Currently, this topic is configured to send email alerts to my inbox, but it can be easily expanded to support multiple recipients (i.e. application subscribers) registered to the topic.
+                      </p>
+
+                      <h3>How It Works</h3>
+                      <h7 class="text-weight-bold">Im not going to provide the steps to set up a lambda or create an api gateway endpoint, plenty of guides and a simple chat with AI could help you with that.</h7><br>
+                      <h7 class="text-weight-normal">I will, however, provide some key info for each service, relevant to this process.</h7>
+                      <ul>
+                        <li><span class="text-weight-bold">AWS api gateway key points:</span>
+                        <ul>
+                          <li>The endpoint processes JSON payloads with a simple structure (payload sample below), enabling me to integrate it quickly into various projects, without changing the endpoint.</li>
+                          <li>The endpoint is secured with an API key, ensuring only authorized users can send messages and providing a way to disable or change an application key if I detect abuse.</li>
+                          <li>Set the integration request to AWS SQS with a path override of: account_id/queue_name</li>
+                          <li>Add a Mapping template of: <code> Action=SendMessage&MessageBody=$util.urlEncode($input.body)</code></li>
+                          <li class="text-weight-bold"> Sample json payload:</li>
+                        </ul>
+                        </li>
+                      </ul>
+                        <pre class="code-block">
+<code>
+{
+  "message": "Body of the message!",
+  "messageAttributes": {
+    "fromProcess": {
+      "stringValue": "OriginDomain",
+      "dataType": "String"
+    },
+    "to": {
+      "stringValue": "toEmail@mail.com",
+      "dataType": "String"
+    }
+  }
+}</code>
+                        </pre>
+                      <p>This JSON format allows flexibility to pass different kinds of alerts or notifications with minimal code changes. Currently, any message sent to the SQS queue from the API gets parsed by Lambda and forwarded to SNS, which then emails the message to a subscriber.<br>
+                        It’s a robust chain that automates notifications without any manual intervention.</p>
+
                       <ul>
                         <li>
-                          <span class="text-weight-bold">AWS S3 and CloudFront:</span>
-                          <p>The site is hosted on AWS S3 as a static website, with CloudFront handling CDN and caching to ensure fast load times worldwide.<br>
-                            SSL/TLS encryption was implemented using AWS ACM for secure browsing.</p>
+                          <span class="text-weight-bold">Simple Queue Service:</span>
+                          <p>Not much to add, gets the message published from api-gw and triggers a lambda.</p>
                         </li>
                         <li>
-                          <span class="text-weight-bold">Domain and Routing:</span>
-                          <p>The custom domain, seavisionpro.com, is managed via AWS Route 53, which ensures reliable and efficient DNS resolution.<br>
-                          Setting up a CNAME record for the certificate and an A record to connect the cloudfront distribution.</p>
+                          <span class="text-weight-bold">Notifications Lambda:</span>
+                          <p>The function handles the message event, parses the payload and publishes to SNS.<br>
+                          Its a one time setup, not going to need CI/CD or modifications, so I used <strong>python</strong> for this function.</p>
+                          <pre class="code-block">
+<code>
+import boto3
+import json
+
+def lambda_handler(event, context):
+    record = event['Records'][0]
+    # Check if the body is a JSON-formatted string or plain text
+    try:
+        # Attempt to parse as JSON
+        body_content = json.loads(record['body'])
+        message = body_content.get("message", "")
+        message_attributes = body_content.get("messageAttributes", {})
+        from_process = message_attributes.get("fromProcess", {}).get("stringValue", "")
+        to_address = message_attributes.get("to", {}).get("stringValue", "")
+    except json.JSONDecodeError:
+        # If it's plain text, directly assign it
+        message = "message: " + record['body']
+        from_process = record['messageAttributes']['fromProcess']['stringValue']
+        to_address = record['messageAttributes']['to']['stringValue']
+    # Map to variables
+    result = {
+        "message_body": message,
+        "from_process": from_process,
+        "to_address": to_address,
+    }
+    client = boto3.client('sns')
+    snsArn = 'SNS-ARN-HERE'
+    try:
+        response = client.publish(
+            TopicArn=snsArn,
+            Message=message,
+            Subject=from_process
+        )
+    except Exception as e:
+        print("An error occurred:", e)
+</code>
+                          </pre>
                         </li>
                         <li>
-                          <span class="text-weight-bold">Deployment Pipeline Full CI/CD:</span>
-                          <p>Make dev easier with a CI/CD process.<br>
-                            A custom GitHub Action automates deployments by pushing updated files to S3 and invalidating the CloudFront cache.
-                            This streamlines development and ensures the latest content is always available to users.</p>
+                          <span class="text-weight-bold">Simple Notification Service (SNS):</span>
+                          <p>Set up a topic and add your email as a subscriber.</p>
+                        </li>
+                      </ul>
+                      <h3>Use Cases and Benefits</h3>
+                      <p class="text-weight-normal">From alerting on background job completions to sending status updates for long-running tasks, to using it as a `contact us` or subscription list publisher,<br>
+                        this API endpoint has proven valuable for POCs needing quick feedback.<br>
+                        The setup bypasses the need for a traditional backend, saving time and resources.</p>
+                      <ul>
+                        <li>
+                          <span class="text-weight-bold">CORS-Enabled:</span>
+                          <p>Like my other API projects, this endpoint is configured for secure access, only allowing requests from specific domain names.</p>
                         </li>
                         <li>
-                          <span class="text-weight-bold">Frontend Design:</span>
-                          <p>Haven't met a Backend developer who loves Front end dev yet, and Im no different in that aspect.<br>
-                            I looked for tools that made this process easier. Built using Relume, Figma and Webflow to generate ths sitemap, design and color scheme and export the HTML, CSS, and JS.<br>
-                            This tools incorporate AI to help with design and responsiveness. The design balances user-friendliness with responsiveness, providing a seamless experience across devices.</p>
+                          <span class="text-weight-bold">Flexible and Expandable:</span>
+                          <p>While it’s currently limited to a single email subscriber, expanding this API for SMS, app notifications, or additional email recipients would be straightforward. Adding further AWS services or SNS topics makes it adaptable for evolving project needs.</p>
                         </li>
                       </ul>
                       <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="../images/projects/seavisionpro-fe.png" alt="seavisionpro request flow"></div>
-                        <figcaption>FE and CI/CD diagram</figcaption>
-                      </figure>
-
-                      <h3>Backend Algorithm Infrastructure</h3>
-                      <h6>I needed a scheduled process that would fetch weather metrics, run a custom algorithm to determine tomorrow's visibility rating and somewhere to store the results.</h6>
-                      <h7 class="text-weight-bold">Data Flow and Updates:</h7>
-                      <ul>
-                        <li>
-                          <span class="text-weight-bold">Data Collection and Processing:</span>
-                          <p>The backend algorithm collects weather metrics data on wave height, water temperature, and other parameters using AWS Lambda functions triggered by EventBridge event.<br>
-                            This ensures automated updates every evening, also, the lambda free tier is not breached, so no additional costs.<br>
-                            Running a Java lambda, the project had to be light with minimal start time.<br>
-                            That means no heavy libraries, no spring, no hibernate, just plain java and the algorithm has to be very efficient.
-                          </p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Data Storage:</span>
-                          <p>Processed data is stored in an AWS DynamoDB table.<br>
-                            I selected DynamoDB since there are no ongoing storage costs (within free tier) and since its nosql, I can use it for other projects that would require different items stored.<br>
-                            Also, DynamoDB and ApiGateway integrate well, and I can fetch data directly from the table without any additional services.
-                          </p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">API Layer:</span>
-                          <p>I use API Gateway to expose an endpoint that fetch visibility data and provide predictions.<br>
-                            This endpoint fetches data directly from DynamoDB, without Lambda or other services, insuring low latency and low cost.</p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Prediction Algorithm:</span>
-                          <p>A custom algorithm I crafted, analyzes recent weather data to generate visibility rating predictions.<br>
-                            The logic is optimized to deliver reliable predictions based on historical, predicted metrics and real-time trends.<br>
-                            The algorithm asses the data by assigning a "weight" to each metric, and then summing the weights to get a final score.<br>
-                            </p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Deployment Pipeline Full CI/CD:</span>
-                          <p>I put together a custom GitHub Action automates deployments by running UTs, packaging and updating the lambda with the jar.
-                            This streamlines development and makes my life allot easier.</p>
-                        </li>
-                      </ul>
-                      <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="../images/projects/seavisionpro-be.png" alt="backend architecture and flow"></div>
-                        <figcaption>BE and CI/CD diagram</figcaption>
+                        <div><img loading="lazy" src="../images/placeholder-image.svg" alt="Wrapping up and final thoughts"></div>
+                        <figcaption>Wrapping up and final thoughts</figcaption>
                       </figure>
 
                       <h4>Final Thoughts</h4>
-                      <h7 class="text-weight-bold">Scalability and Cost-Effectiveness:</h7>
-                      <p>As this is a "niche" site, I'm not expecting more than a few thousand entries per month, however,
-                        The infrastructure is designed to handle variable traffic volumes efficiently,scale dynamically while maintaining high availability and with minimal ongoing maintenance costs.<br>
-                        </p>
-                      <h7 class="text-weight-bold">Outcome and Next Steps:</h7>
-                      <p>SeaVisionPro is my first full website in production, it successfully delivers daily visibility predictions for multiple regions, helping divers and snorkelers plan their activities.<br>
-                        Future updates aim to include more content, additional regions, and improved prediction algorithm.</p>
-                      <h6>Don't forget to check out <a href="https://seavisionpro.com" target="_blank" style="color: #1e51f7" >SeaVisionPro.com</a></h6>
+                      <p>The <span class="text-weight-bold">Message Publishing API</span>> is a powerful, reusable component in my toolkit, capable of automating notifications across different projects.<br>
+                        It’s fast, easy to set up, and ideal for lightweight applications that need dynamic notifications or alerts without the need for a full backend system.<br>
+                        Using SQS and Lambda as connectors, this setup highlights the flexibility of AWS services to streamline workflows and automate notifications — whether for small projects, testing, or POCs.<br>
+                        <br>
+                        In the end, these tools support my workflow as a developer, allowing me to stay focused on core project goals while simplifying backend automation.</p>
                     </div>
                   </div>
                   <div class="blog-post_body_content-bottom">
@@ -252,19 +296,19 @@ a {
                       <div class="text-size-medium text-weight-semibold">Share this post</div>
                       <div class="margin-top margin-xsmall">
                         <div class="w-layout-grid blog-post_body_share">
-                          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/seavisionpro" target="_blank" class="blog-post_body_social-link w-inline-block">
+                          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/custommessageservice.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                             <div class="icon-embed-xsmall w-embed">
                               <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3C3.67157 3 3 3.67157 3 4.5V19.5C3 20.3284 3.67157 21 4.5 21H19.5C20.3284 21 21 20.3284 21 19.5V4.5C21 3.67157 20.3284 3 19.5 3H4.5ZM8.52076 7.00272C8.52639 7.95897 7.81061 8.54819 6.96123 8.54397C6.16107 8.53975 5.46357 7.90272 5.46779 7.00413C5.47201 6.15897 6.13998 5.47975 7.00764 5.49944C7.88795 5.51913 8.52639 6.1646 8.52076 7.00272ZM12.2797 9.76176H9.75971H9.7583V18.3216H12.4217V18.1219C12.4217 17.742 12.4214 17.362 12.4211 16.9819V16.9818V16.9816V16.9815V16.9812C12.4203 15.9674 12.4194 14.9532 12.4246 13.9397C12.426 13.6936 12.4372 13.4377 12.5005 13.2028C12.7381 12.3253 13.5271 11.7586 14.4074 11.8979C14.9727 11.9864 15.3467 12.3141 15.5042 12.8471C15.6013 13.1803 15.6449 13.5389 15.6491 13.8863C15.6605 14.9339 15.6589 15.9815 15.6573 17.0292V17.0294C15.6567 17.3992 15.6561 17.769 15.6561 18.1388V18.3202H18.328V18.1149C18.328 17.6629 18.3278 17.211 18.3275 16.7591V16.759V16.7588C18.327 15.6293 18.3264 14.5001 18.3294 13.3702C18.3308 12.8597 18.276 12.3563 18.1508 11.8627C17.9638 11.1286 17.5771 10.5211 16.9485 10.0824C16.5027 9.77019 16.0133 9.5691 15.4663 9.5466C15.404 9.54401 15.3412 9.54062 15.2781 9.53721L15.2781 9.53721L15.2781 9.53721C14.9984 9.52209 14.7141 9.50673 14.4467 9.56066C13.6817 9.71394 13.0096 10.0641 12.5019 10.6814C12.4429 10.7522 12.3852 10.8241 12.2991 10.9314L12.2991 10.9315L12.2797 10.9557V9.76176ZM5.68164 18.3244H8.33242V9.76733H5.68164V18.3244Z" fill="CurrentColor"></path>
                               </svg></div>
                           </a>
-                          <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/seavisionpro&text=Check out this technical deep dive to SeaVisionPro!" target="_blank" class="blog-post_body_social-link w-inline-block">
+                          <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/custommessageservice.html&text=Check out what it takes to set up a Message Publishing Service!" target="_blank" class="blog-post_body_social-link w-inline-block">
                             <div class="icon-embed-xsmall w-embed">
                               <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.1761 4H19.9362L13.9061 10.7774L21 20H15.4456L11.0951 14.4066L6.11723 20H3.35544L9.80517 12.7508L3 4H8.69545L12.6279 9.11262L17.1761 4ZM16.2073 18.3754H17.7368L7.86441 5.53928H6.2232L16.2073 18.3754Z" fill="CurrentColor"></path>
                               </svg></div>
                           </a>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://seavisionpro.com" target="_blank" class="blog-post_body_social-link w-inline-block">
+                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com/projects/custommessageservice.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                             <div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22 12.0611C22 6.50451 17.5229 2 12 2C6.47715 2 2 6.50451 2 12.0611C2 17.0828 5.65684 21.2452 10.4375 22V14.9694H7.89844V12.0611H10.4375V9.84452C10.4375 7.32296 11.9305 5.93012 14.2146 5.93012C15.3088 5.93012 16.4531 6.12663 16.4531 6.12663V8.60261H15.1922C13.95 8.60261 13.5625 9.37822 13.5625 10.1739V12.0611H16.3359L15.8926 14.9694H13.5625V22C18.3432 21.2452 22 17.083 22 12.0611Z" fill="CurrentColor"></path>
                               </svg></div>
@@ -275,9 +319,10 @@ a {
                     <div class="blog-post_body_tag-list-wrapper">
                       <div class="blog-post_body_tag-list">
                         <div class="tag"><div>AWS</div></div>
-                        <div class="tag"><div>Algorithm</div></div>
-                        <div class="tag"><div>NoSql</div></div>
-                        <div class="tag"><div>WebSite</div></div>
+                        <div class="tag"><div>Lambda</div></div>
+                        <div class="tag"><div>API-GW</div></div>
+                        <div class="tag"><div>SQS</div></div>
+                        <div class="tag"><div>SNS</div></div>
                       </div>
                     </div>
                   </div>
