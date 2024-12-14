@@ -2,21 +2,27 @@
 <html lang="en" data-wf-page="6734d4336c8f76142b32e561" data-wf-site="6734cc2be8b3b13f37826a3c">
 <head>
     <meta charset="utf-8">
-    <title>Configurable CloudFormation Template</title>
+    <title>The Magical Blueprint</title>
 
-    <meta content="Configurable CloudFormation Template" property="og:title">
-    <meta property="og:description" content="The technical journey of creating SeaVisionPro, a website designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts." />
-    <meta name="title" content="SeaVisionPro - Deep Dive">
-    <meta name="description" content="The technical journey of creating SeaVisionPro, a website designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts." />
-    <meta property="og:url" content="https://asafmaoz.com/projects/seavisionpro.html" />
-    <meta property="og:image" content="https://asafmaoz.com/images/instantclarityfeature-p-500.webp"/>
+    <meta property="og:description" content="A meticulously crafted cloudformation template — configurable, reusable, and designed to conjure up a robust aws infrastructure." />
+    <meta name="description" content="A meticulously crafted cloudformation template — configurable, reusable, and designed to conjure up a robust aws infrastructure." />
+    <meta name="title" content="The Magical Blueprint">
+    <meta property="og:title" content="The Magical Blueprint">
+
+    <meta property="og:url" content="https://asafmaoz.com/projects/magicaltemplate.html" />
+    <meta property="og:image" content="https://asafmaoz.com/images/projects/magicaltemplate-header.png"/>
+    <meta property="og:type" content="Blog Post" />
+    <meta property="og:site_name" content="asafmaoz" />
+
+    <meta property="og:url" content="https://asafmaoz.com/projects/magicaltemplate.html" />
+    <meta property="og:image" content="https://asafmaoz.com/images/projects/magicaltemplate-header.png"/>
     <meta property="og:type" content="Blog Post" />
     <meta property="og:site_name" content="asafmaoz" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:url" content="https://asafmaoz.com/projects/seavisionpro.html"/>
-    <meta name="twitter:title" content="Check out this technical deep dive to SeaVisionPro!"/>
-    <meta name="twitter:description" content="The technical journey of creating SeaVisionPro, a website designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts." />
+    <meta name="twitter:url" content="https://asafmaoz.com/projects/magicaltemplate.html"/>
+    <meta name="twitter:title" content="The Magical Blueprint"/>
+    <meta name="twitter:description" content="A meticulously crafted cloudformation template — configurable, reusable, and designed to conjure up a robust aws infrastructure." />
 
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="../css/normalize.css" rel="stylesheet" type="text/css">
@@ -147,7 +153,9 @@
                                 <div class="blog-post_header_title-wrapper">
                                     <h1 class="heading-style-h2" style="padding-bottom: 10px">The Magical Blueprint</h1>
                                     <h1 class="text-align-left text-size-medium text-weight-bold">Configurable CloudFormation Template - API Gateway, custom domain, Lambda Integration.</h1><br>
-                                    <h1 class="text-align-left text-size-medium text-weight-light">Today, we’ll unveil a CloudFormation template that isn’t just a piece of code , it’s your Aladdin’s lamp, ready to bring sophisticated serverless architectures out of thin air with the mere rub of configuration.</h1>
+                                    <h1 class="text-align-left text-size-medium text-weight-light">Today, we’ll unveil a CloudFormation template that isn’t just a piece of code, it’s your Aladdin’s lamp<br>
+                                        Set up an endpoint, a lambda worker, IAM role in a click of a button.<br>
+                                    You can now focus on the POC/project/million $ software.</h1>
                                     <div class="margin-top margin-medium">
                                         <div class="blog-post_header_content-top">
                                             <div class="blog-post_header_share-wrapper">
@@ -200,22 +208,25 @@
                                         <ul>
                                             <li>
                                                 <span class="text-weight-bold"><i>API Gateway as the Front Gate:</i></span>
-                                                <p>The face of your operations, it’s a custom domain API Gateway, easily configurable to represent your unique digital presence in the cloud.</p>
+                                                <p>The face of your operations, it’s a custom domain API Gateway, easily configurable to represent your unique digital presence in the cloud.<br>
+                                                The template will create a Rest API with POST Method, A Resource, set up a Domain name and create a Prod Stage for deployment.</p>
                                             </li>
                                             <li>
                                                 <span class="text-weight-bold"><i>Lambda, the Magic Worker:</i></span>
                                                 <p>Behind this gateway lies the real wizardry.<br>
                                                     Ready to execute your business logic without the need to manage servers.<br>
-                                                    The code that empowers this function rests securely in an existing <strong>S3 bucket</strong>, summoned and executed as needed.</p>
+                                                    The lambda is triggered by the above api gateway (any method it has) and the code that powers this function rests securely in an existing <strong>S3 bucket</strong>, summoned and executed as needed.<br>
+                                                </p>
                                             </li>
                                             <li>
                                                 <span class="text-weight-bold"><i>The Invisible Cloak of Security:</i></span>
-                                                <p>The template weaves an <strong>IAM role</strong> automatically, granting your Lambda function the precise permissions needed to perform its duties securely and efficiently.</p>
+                                                <p>The template weaves an <strong>IAM role</strong> automatically, granting your Lambda function the precise permissions needed to perform its duties securely and efficiently.<br>
+                                                It can use the S3 code and write cloudwatch logs and metrics.</p>
                                             </li>
                                         </ul>
                                         <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                                            <div><img loading="lazy" src="../images/placeholder-image.svg" alt=""></div>
-                                            <figcaption>image</figcaption>
+                                            <div><img loading="lazy" src="../images/projects/magicaltemplate-process.png" alt="Overview of created resources"></div>
+                                            <figcaption>Overview of created resources</figcaption>
                                         </figure>
 
                                         <h4>How It Works: The Spellbinding Process</h4>
@@ -420,8 +431,8 @@ Outputs:
                                         <p class="text-weight-bold">* Change the Parameters to match your needs.</p>
 
                                         <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                                            <div><img loading="lazy" src="../images/placeholder-image.svg" alt="image"></div>
-                                            <figcaption>image</figcaption>
+                                            <div><img loading="lazy" src="../images/projects/magicaltemplate-conclusion.webp" alt="magic wand with cloud services"></div>
+                                            <figcaption>Not magic - just an amazing template</figcaption>
                                         </figure>
 
                                         <h4>Conclusion</h4>
