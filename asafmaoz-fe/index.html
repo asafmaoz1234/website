@@ -6,7 +6,6 @@
   <title>Asaf Maoz</title>
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/webflow.css" rel="stylesheet" type="text/css">
   <link href="css/asafmaoz-fe.webflow.css" rel="stylesheet" type="text/css">
@@ -30,16 +29,7 @@
 body * {
     color: inherit;
 }
-a,
-.w-input,
-.w-select,
-.w-tab-link,
-.w-nav-link,
-.w-slider-arrow-left,
-.w-slider-arrow-right,
-.w-dropdown-btn,
-.w-dropdown-toggle,
-.w-dropdown-link {
+a {
   color: inherit;
   text-decoration: inherit;
   font-size: inherit;
@@ -58,143 +48,7 @@ a,
 .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
 	margin-bottom: 0 !important;
 }
-/* Prevent all click and hover interaction with an element */
-.pointer-events-off {
-	pointer-events: none;
-}
-/* Enables all click and hover interaction with an element */
-.pointer-events-on {
-  pointer-events: auto;
-}
-/* Create a class of .div-square which maintains a 1:1 dimension of a div */
-.div-square::after {
-	content: "";
-	display: block;
-	padding-bottom: 100%;
-}
-/* Make sure containers never lose their center alignment */
-.container-medium,.container-small, .container-large {
-	margin-right: auto !important;
-  margin-left: auto !important;
-}
-/* Apply "..." after 3 lines of text */
-.text-style-3lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
-/* Apply "..." after 2 lines of text */
-.text-style-2lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-}
-/* Adds inline flex display */
-.display-inlineflex {
-  display: inline-flex;
-}
-/* These classes are never overwritten */
-.hide {
-  display: none !important;
-}
-@media screen and (max-width: 991px) {
-    .hide, .hide-tablet {
-        display: none !important;
-    }
-}
-  @media screen and (max-width: 767px) {
-    .hide-mobile-landscape{
-      display: none !important;
-    }
-}
-  @media screen and (max-width: 479px) {
-    .hide-mobile{
-      display: none !important;
-    }
-}
-.margin-0 {
-  margin: 0rem !important;
-}
-.padding-0 {
-  padding: 0rem !important;
-}
-.spacing-clean {
-padding: 0rem !important;
-margin: 0rem !important;
-}
-.margin-top {
-  margin-right: 0rem !important;
-  margin-bottom: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-top {
-  padding-right: 0rem !important;
-  padding-bottom: 0rem !important;
-  padding-left: 0rem !important;
-}
-.margin-right {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-right {
-  padding-top: 0rem !important;
-  padding-bottom: 0rem !important;
-  padding-left: 0rem !important;
-}
-.margin-bottom {
-  margin-top: 0rem !important;
-  margin-right: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-bottom {
-  padding-top: 0rem !important;
-  padding-right: 0rem !important;
-  padding-left: 0rem !important;
-}
-.margin-left {
-  margin-top: 0rem !important;
-  margin-right: 0rem !important;
-  margin-bottom: 0rem !important;
-}
-.padding-left {
-  padding-top: 0rem !important;
-  padding-right: 0rem !important;
-  padding-bottom: 0rem !important;
-}
-.margin-horizontal {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important;
-}
-.padding-horizontal {
-  padding-top: 0rem !important;
-  padding-bottom: 0rem !important;
-}
-.margin-vertical {
-  margin-right: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-vertical {
-  padding-right: 0rem !important;
-  padding-left: 0rem !important;
-}
-/* Apply "..." at 100% width */
-.truncate-width { 
-		width: 100%; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-}
-/* Removes native scrollbar */
-.no-scrollbar {
-    -ms-overflow-style: none;
-    overflow: -moz-scrollbars-none; 
-}
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
+
 </style>
     </div>
     <div data-collapse="medium" data-animation="default" data-duration="400" fs-scrolldisable-element="smart-nav" data-easing="ease" data-easing2="ease" role="banner" class="navbar1_component w-nav">
@@ -328,9 +182,10 @@ margin: 0rem !important;
                           <div class="home_portfolio_title-wrapper">
                             <div class="home_portfolio_item-content-top">
                               <div class="margin-bottom margin-xxsmall">
-                                <h3 class="heading-style-h5">Configurable CloudFormation - API Gateway, custom domain, Lambda Integration</h3>
+                                <h3 class="heading-style-h5">The "Magical" template</h3>
                               </div>
-                              <div class="text-size-regular">A template that isn’t just a piece of code, it’s your Aladdin’s lamp, ready to bring sophisticated serverless architectures out of thin air with the mere rub of configuration.</div>
+                              <div class="text-size-regular">A template that isn’t just a piece of code, it’s your Aladdin’s lamp, ready to bring sophisticated serverless architectures out of thin air with the mere rub of configuration.<br>
+                              Set up the Infrastructure for your POC in a few minutes.</div>
                             </div>
                             <div>
                               <div class="margin-top margin-xsmall" style="padding-bottom: 1rem">
