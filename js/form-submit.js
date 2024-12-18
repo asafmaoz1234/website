@@ -41,7 +41,7 @@ function handleFormSubmission() {
 }
 
 async function sendFormData(formData) {
-    fetch('https://b093xw7y8j.execute-api.eu-west-1.amazonaws.com/prod/sendMessage', {
+    fetch('https://v30vpxk0c6.execute-api.eu-west-1.amazonaws.com/prod/sendMessage', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
