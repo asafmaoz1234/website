@@ -51,7 +51,8 @@ async function sendFormData(formData) {
         const response = await fetch('https://b093xw7y8j.execute-api.eu-west-1.amazonaws.com/prod/sendMessage', {
             method: 'POST', // Set the method to POST
             headers: {
-                'Content-Type': 'application/json' // Send as JSON
+                'Content-Type': 'application/json', // Send as JSON
+                'x-api-key': 'i0AC74wgk11z3yVhaVZiN3wPJKCaLMHE6NDVELNf'
             },
             body: JSON.stringify(formData) // Convert form data to JSON
         });
