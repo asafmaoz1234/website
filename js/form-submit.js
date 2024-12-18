@@ -38,38 +38,33 @@ function handleFormSubmission() {
 
     let data = sendFormData(formData);
     console.log(data);
-    if (data === undefined) {
-
-    }else {
-        document.getElementById("form-success-wrapper").style.display = "block";
-        document.getElementById("form-success").style.display = "block";
-    }
 }
 
 async function sendFormData(formData) {
-    try {
-        const response = await fetch('https://b093xw7y8j.execute-api.eu-west-1.amazonaws.com/prod/sendMessage', {
-            method: 'POST', // Set the method to POST
-            headers: {
-                'Content-Type': 'application/json', // Send as JSON
-                'x-api-key': 'i0AC74wgk11z3yVhaVZiN3wPJKCaLMHE6NDVELNf'
-            },
-            body: JSON.stringify(formData) // Convert form data to JSON
+    fetch('https://b093xw7y8j.execute-api.eu-west-1.amazonaws.com/prod/sendMessage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'x-api-key': 'i0AC74wgk11z3yVhaVZiN3wPJKCaLMHE6NDVELNf'
+        },
+        body: JSON.stringify(formData)
+    })
+        .then(response => {
+            if (response.status === 200) {
+                document.getElementById("form-success-wrapper").style.display = "block";
+                document.getElementById("form-success").style.display = "block";
+                return response.json();
+            } else {
+                document.getElementById("form-errors").style.display = "block";
+                document.getElementById("form-submit-error").style.display = "block";
+                throw new Error(`Request failed with status ${response.status}`);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error)
+            document.getElementById("form-errors").style.display = "block";
+            document.getElementById("form-submit-error").style.display = "block";
         });
-
-        // Handle the response
-        if (response.ok) {
-            return true; // Assuming the response is JSON
-            // Optionally show a success message or redirect
-        } else {
-            // Optionally show an error message
-            throw new Error('Failed to submit form');
-        }
-    } catch (error) {
-        // Handle any network or other errors
-        document.getElementById("form-errors").style.display = "block";
-        document.getElementById("form-submit-error").style.display = "block";
-    }
 
 }
 
