@@ -7,7 +7,7 @@
   <meta name="description" content="Learn how to set up a secure, scalable S3 static website using a CloudFormation template. Automate AWS infrastructure with Infrastructure as Code for fast and efficient deployments. Ideal for developers and small projects.">
 
   <meta property="og:type" content="article" />
-  <meta property="og:image" content=""><!-- 1200 x 630 JPEG / PNG -->
+  <meta property="og:image" content="https://asafmaoz.com/images/asafmaoz-hub-logo-800w-800h-X.jpg"><!-- 1200 x 630 JPEG / PNG -->
   <meta property="og:url" content="https://asafmaoz.com/projects/staticwebsite.html">
   <meta property="og:title" content="Asaf Maoz - Professional Hub - Set Up an S3 Static Website with CloudFormation | Infrastructure as Code">
   <meta property="og:description" content="Learn how to set up a secure, scalable S3 static website using a CloudFormation template. Automate AWS infrastructure with Infrastructure as Code for fast and efficient deployments. Ideal for developers and small projects.">
@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="Asaf Maoz - Professional Hub - Set Up an S3 Static Website with CloudFormation | Infrastructure as Code"/>
   <meta name="twitter:description" content="Learn how to set up a secure, scalable S3 static website using a CloudFormation template. Automate AWS infrastructure with Infrastructure as Code for fast and efficient deployments. Ideal for developers and small projects."/>
   <meta name="twitter:type" content="article"/>
-  <meta name="twitter:image" content=""><!-- 1200 x 630 JPEG / PNG -->
+  <meta name="twitter:image" content="https://asafmaoz.com/images/asafmaoz-hub-logo-800w-800h-X.jpg"><!-- 800 x 800 JPEG / PNG -->
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -49,16 +49,7 @@
 body * {
     color: inherit;
 }
-a,
-.w-input,
-.w-select,
-.w-tab-link,
-.w-nav-link,
-.w-slider-arrow-left,
-.w-slider-arrow-right,
-.w-dropdown-btn,
-.w-dropdown-toggle,
-.w-dropdown-link {
+a {
   color: inherit;
   text-decoration: inherit;
   font-size: inherit;
@@ -77,148 +68,12 @@ a,
 .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
 	margin-bottom: 0 !important;
 }
-/* Prevent all click and hover interaction with an element */
-.pointer-events-off {
-	pointer-events: none;
-}
-/* Enables all click and hover interaction with an element */
-.pointer-events-on {
-  pointer-events: auto;
-}
-/* Create a class of .div-square which maintains a 1:1 dimension of a div */
-.div-square::after {
-	content: "";
-	display: block;
-	padding-bottom: 100%;
-}
-/* Make sure containers never lose their center alignment */
-.container-medium,.container-small, .container-large {
-	margin-right: auto !important;
-  margin-left: auto !important;
-}
-/* Apply "..." after 3 lines of text */
-.text-style-3lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 3;
-	-webkit-box-orient: vertical;
-}
-/* Apply "..." after 2 lines of text */
-.text-style-2lines {
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
-}
-/* Adds inline flex display */
-.display-inlineflex {
-  display: inline-flex;
-}
-/* These classes are never overwritten */
-.hide {
-  display: none !important;
-}
-@media screen and (max-width: 991px) {
-    .hide, .hide-tablet {
-        display: none !important;
-    }
-}
-  @media screen and (max-width: 767px) {
-    .hide-mobile-landscape{
-      display: none !important;
-    }
-}
-  @media screen and (max-width: 479px) {
-    .hide-mobile{
-      display: none !important;
-    }
-}
-.margin-0 {
-  margin: 0rem !important;
-}
-.padding-0 {
-  padding: 0rem !important;
-}
-.spacing-clean {
-padding: 0rem !important;
-margin: 0rem !important;
-}
-.margin-top {
-  margin-right: 0rem !important;
-  margin-bottom: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-top {
-  padding-right: 0rem !important;
-  padding-bottom: 0rem !important;
-  padding-left: 0rem !important;
-}
-.margin-right {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-right {
-  padding-top: 0rem !important;
-  padding-bottom: 0rem !important;
-  padding-left: 0rem !important;
-}
-.margin-bottom {
-  margin-top: 0rem !important;
-  margin-right: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-bottom {
-  padding-top: 0rem !important;
-  padding-right: 0rem !important;
-  padding-left: 0rem !important;
-}
-.margin-left {
-  margin-top: 0rem !important;
-  margin-right: 0rem !important;
-  margin-bottom: 0rem !important;
-}
-.padding-left {
-  padding-top: 0rem !important;
-  padding-right: 0rem !important;
-  padding-bottom: 0rem !important;
-}
-.margin-horizontal {
-  margin-top: 0rem !important;
-  margin-bottom: 0rem !important;
-}
-.padding-horizontal {
-  padding-top: 0rem !important;
-  padding-bottom: 0rem !important;
-}
-.margin-vertical {
-  margin-right: 0rem !important;
-  margin-left: 0rem !important;
-}
-.padding-vertical {
-  padding-right: 0rem !important;
-  padding-left: 0rem !important;
-}
-/* Apply "..." at 100% width */
-.truncate-width { 
-		width: 100%; 
-    white-space: nowrap; 
-    overflow: hidden; 
-    text-overflow: ellipsis; 
-}
-/* Removes native scrollbar */
-.no-scrollbar {
-    -ms-overflow-style: none;
-}
-.no-scrollbar::-webkit-scrollbar {
-    display: none;
-}
 </style>
     </div>
     <div data-collapse="medium" data-animation="default" data-duration="400" fs-scrolldisable-element="smart-nav" data-easing="ease" data-easing2="ease" role="banner" class="navbar1_component w-nav">
       <div class="navbar1_container">
         <a href="../index.html" class="navbar1_logo-link w-nav-brand">
-          <img width="233" sizes="(max-width: 479px) 73vw, 233px" alt="Asaf Maoz Professional Hub logo" src="../images/asafmaoz-hub-logo-233w.webp" loading="lazy" srcset="../images/asafmaoz-hub-logo-500w.webp 500w, ../images/asafmaoz-hub-logo-804w.webp 804w" class="navbar1_logo"></a>
+          <img width="233" sizes="(max-width: 479px) 73vw, 233px" alt="Asaf Maoz Professional Hub logo" src="../images/asafmaoz-hub-logo-233w.webp" loading="lazy" srcset="../images/asafmaoz-hub-logo-500w.webp 500w, ../images/asafmaoz-hub-logo-804w.webp 800w" class="navbar1_logo"></a>
         <nav role="navigation" class="navbar1_menu is-page-height-tablet w-nav-menu">
           <div class="navbar1_menu-links">
             <a href="../index.html" class="navbar1_link w-nav-link">Home</a>
@@ -277,7 +132,9 @@ margin: 0rem !important;
                       </div>
                     </div>
                   </div>
-                  <div class="blog-post_header_image-wrapper"><img loading="eager" src="../images/placeholder-image.svg" alt="" class="blog-post_header_image"></div>
+                  <div class="blog-post_header_image-wrapper">
+                    <img loading="eager" style="border-radius: 0.5rem"  sizes="(max-width: 479px) 73vw, 233px" alt="A high-resolution digital illustration showcasing the concept of rapid and simple infrastructure setup for static websites" src="../images/projects/staticwebsite-header-233w.webp" loading="lazy" srcset="../images/projects/staticwebsite-header-500w.webp 500w, ../images/projects/staticwebsite-header-804w.webp 800w" class="blog-post_header_image">
+                  </div>
                 </div>
               </div>
             </div>
@@ -305,8 +162,10 @@ margin: 0rem !important;
                       <span class="text-weight-bold">This template empowers you to focus on content, not configuration.</span>
                       </p>
                       <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/6243807090316262904aee69_Placeholder%20Image%20-%20Landscape.svg" alt=""></div>
-                        <figcaption>Image caption goes here</figcaption>
+                        <div>
+                          <img loading="lazy" alt="aws cloud map of the affected resources, S3, Cloudfront, Route53, ACM." src="../images/projects/staticwebsite-process-233w.png" loading="lazy" srcset="../images/projects/staticwebsite-process-500w.png 500w, ../images/projects/staticwebsite-process-804w.png 800w"></div>
+
+                        <figcaption>AWS resources created, used or modified by the template.</figcaption>
                       </figure>
                       <h3>How It Works and Prerequisites</h3>
                       <p class="text-weight-bold">The template creates and affects the following resources:</p>
