@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" data-wf-page="6734d4336c8f76142b32e561" data-wf-site="6734cc2be8b3b13f37826a3c">
+<html data-wf-page="6734d4336c8f76142b32e561" data-wf-site="6734cc2be8b3b13f37826a3c">
 <head>
   <meta charset="utf-8">
-  <title>SeaVisionPro-Deep Dive</title>
-  <meta name="title" content="Asaf Maoz - Professional Hub - SeaVisionPro Infra and WebSite Deep Dive">
-  <meta name="description" content="Dive into the technical journey of creating SeaVisionPro. From infrastructure setup to algorithm development, this post walks through the challenges, decisions, and final architecture of the platform.">
+  <title>S3 Static Website Using CloudFormation</title>
+  <meta name="title" content="Asaf Maoz - Professional Hub - Set Up an S3 Static Website with CloudFormation | Infrastructure as Code">
+  <meta name="description" content="Learn how to set up a secure, scalable S3 static website using a CloudFormation template. Automate AWS infrastructure with Infrastructure as Code for fast and efficient deployments. Ideal for developers and small projects.">
 
   <meta property="og:type" content="article" />
-  <meta property="og:image" content="https://asafmaoz.com/images/asafmaoz-hub-logo-1200w-630.jpg"><!-- 1200 x 630 JPEG / PNG -->
-  <meta property="og:url" content="https://asafmaoz.com/projects/seavisionpro.html">
-  <meta property="og:title" content="Asaf Maoz - Professional Hub - SeaVisionPro Infra and WebSite Deep Dive">
-  <meta property="og:description" content="Dive into the technical journey of creating SeaVisionPro. From infrastructure setup to algorithm development, this post walks through the challenges, decisions, and final architecture of the platform.">
+  <meta property="og:image" content=""><!-- 1200 x 630 JPEG / PNG -->
+  <meta property="og:url" content="https://asafmaoz.com/projects/staticwebsite.html">
+  <meta property="og:title" content="Asaf Maoz - Professional Hub - Set Up an S3 Static Website with CloudFormation | Infrastructure as Code">
+  <meta property="og:description" content="Learn how to set up a secure, scalable S3 static website using a CloudFormation template. Automate AWS infrastructure with Infrastructure as Code for fast and efficient deployments. Ideal for developers and small projects.">
   <meta property="og:site_name" content="Asaf Maoz - Professional Hub">
 
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:url" content="https://asafmaoz.com/projects/seavisionpro.html"/>
-  <meta name="twitter:title" content="Asaf Maoz - Professional Hub - SeaVisionPro Infra and WebSite Deep Dive"/>
-  <meta name="twitter:description" content="Dive into the technical journey of creating SeaVisionPro. From infrastructure setup to algorithm development, this post walks through the challenges, decisions, and final architecture of the platform."/>
+  <meta name="twitter:url" content="https://asafmaoz.com/projects/staticwebsite.html"/>
+  <meta name="twitter:title" content="Asaf Maoz - Professional Hub - Set Up an S3 Static Website with CloudFormation | Infrastructure as Code"/>
+  <meta name="twitter:description" content="Learn how to set up a secure, scalable S3 static website using a CloudFormation template. Automate AWS infrastructure with Infrastructure as Code for fast and efficient deployments. Ideal for developers and small projects."/>
   <meta name="twitter:type" content="article"/>
-  <meta name="twitter:image" content="https://asafmaoz.com/images/asafmaoz-hub-logo-1200w-630.jpg"><!-- 1200 x 630 JPEG / PNG -->
+  <meta name="twitter:image" content=""><!-- 1200 x 630 JPEG / PNG -->
 
   <meta content="width=device-width, initial-scale=1" name="viewport">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
   <link href="../css/normalize_minify.css" rel="stylesheet" type="text/css">
   <link href="../css/webflow_minify.css" rel="stylesheet" type="text/css">
   <link href="../css/asafmaoz-fe.webflow_minify.css" rel="stylesheet" type="text/css">
@@ -46,7 +49,16 @@
 body * {
     color: inherit;
 }
-a {
+a,
+.w-input,
+.w-select,
+.w-tab-link,
+.w-nav-link,
+.w-slider-arrow-left,
+.w-slider-arrow-right,
+.w-dropdown-btn,
+.w-dropdown-toggle,
+.w-dropdown-link {
   color: inherit;
   text-decoration: inherit;
   font-size: inherit;
@@ -65,15 +77,142 @@ a {
 .w-richtext>:last-child, .w-richtext ol li:last-child, .w-richtext ul li:last-child {
 	margin-bottom: 0 !important;
 }
-
-.main-section {
-  padding: 1rem;
-  max-width: 1200px;
-  margin: auto;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Prevent all click and hover interaction with an element */
+.pointer-events-off {
+	pointer-events: none;
 }
-
+/* Enables all click and hover interaction with an element */
+.pointer-events-on {
+  pointer-events: auto;
+}
+/* Create a class of .div-square which maintains a 1:1 dimension of a div */
+.div-square::after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+/* Make sure containers never lose their center alignment */
+.container-medium,.container-small, .container-large {
+	margin-right: auto !important;
+  margin-left: auto !important;
+}
+/* Apply "..." after 3 lines of text */
+.text-style-3lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+/* Apply "..." after 2 lines of text */
+.text-style-2lines {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+}
+/* Adds inline flex display */
+.display-inlineflex {
+  display: inline-flex;
+}
+/* These classes are never overwritten */
+.hide {
+  display: none !important;
+}
+@media screen and (max-width: 991px) {
+    .hide, .hide-tablet {
+        display: none !important;
+    }
+}
+  @media screen and (max-width: 767px) {
+    .hide-mobile-landscape{
+      display: none !important;
+    }
+}
+  @media screen and (max-width: 479px) {
+    .hide-mobile{
+      display: none !important;
+    }
+}
+.margin-0 {
+  margin: 0rem !important;
+}
+.padding-0 {
+  padding: 0rem !important;
+}
+.spacing-clean {
+padding: 0rem !important;
+margin: 0rem !important;
+}
+.margin-top {
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-top {
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-right {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-right {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-bottom {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-bottom {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+.margin-left {
+  margin-top: 0rem !important;
+  margin-right: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-left {
+  padding-top: 0rem !important;
+  padding-right: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-horizontal {
+  margin-top: 0rem !important;
+  margin-bottom: 0rem !important;
+}
+.padding-horizontal {
+  padding-top: 0rem !important;
+  padding-bottom: 0rem !important;
+}
+.margin-vertical {
+  margin-right: 0rem !important;
+  margin-left: 0rem !important;
+}
+.padding-vertical {
+  padding-right: 0rem !important;
+  padding-left: 0rem !important;
+}
+/* Apply "..." at 100% width */
+.truncate-width { 
+		width: 100%; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+}
+/* Removes native scrollbar */
+.no-scrollbar {
+    -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
 </style>
     </div>
     <div data-collapse="medium" data-animation="default" data-duration="400" fs-scrolldisable-element="smart-nav" data-easing="ease" data-easing2="ease" role="banner" class="navbar1_component w-nav">
@@ -93,7 +232,7 @@ a {
         </div>
       </div>
     </div>
-    <main class="main-wrapper  main-section">
+    <main class="main-wrapper">
       <header class="section_blog-post_header">
         <div class="padding-global">
           <div class="container-large">
@@ -101,30 +240,34 @@ a {
               <div class="blog-post_header_component">
                 <div class="w-layout-grid blog-post_header_content">
                   <div class="blog-post_header_title-wrapper">
-                    <h1 class="heading-style-h2" style="padding-bottom: 10px">SeaVisionPro - Deep Dive</h1>
-                    <h1 class="text-align-left text-size-medium text-weight-light">Dive into the technical journey of creating SeaVisionPro.<br>
-                      Designed to provide accurate underwater visibility predictions for diving and snorkeling enthusiasts.</h1>
-                    <h1 class="text-align-left text-size-medium text-weight-light">From infrastructure setup to algorithm development, this post walks through the challenges, decisions, and final architecture of the platform.</h1>
-                    <div class="margin-top margin-medium">
+                    <h1 class="heading-style-h2">Set Up Your S3 Static Website with Ease Using CloudFormation</h1>
+                    <h1 class="text-align-left text-size-medium text-weight-bold" style="padding: 2px;">Ever wondered how to quickly set up a scalable, secure, and efficient static website on AWS?</h1>
+                    <h1 class="text-align-left text-size-medium text-weight-light">
+                      Ever wondered how to quickly set up a scalable, secure, and efficient static website on AWS?<br>
+                      With this CloudFormation template, you can achieve it in just a few steps.<br>
+                      Building a small project? hosting documentation? managing multiple websites? Low on budget?<br>
+                      This solution streamlines the process and ensures consistency across deployments.
+                    </h1>
+                    <div class="margin-top margin-large">
                       <div class="blog-post_header_content-top">
                         <div class="blog-post_header_share-wrapper">
                           <div class="margin-bottom margin-xsmall">
                             <div class="text-weight-semibold">Share this post</div>
                           </div>
                           <div class="w-layout-grid blog-post_body_share">
-                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/seavisionpro.html" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/staticwebsite.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                               <div class="icon-embed-xsmall w-embed">
                                 <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3C3.67157 3 3 3.67157 3 4.5V19.5C3 20.3284 3.67157 21 4.5 21H19.5C20.3284 21 21 20.3284 21 19.5V4.5C21 3.67157 20.3284 3 19.5 3H4.5ZM8.52076 7.00272C8.52639 7.95897 7.81061 8.54819 6.96123 8.54397C6.16107 8.53975 5.46357 7.90272 5.46779 7.00413C5.47201 6.15897 6.13998 5.47975 7.00764 5.49944C7.88795 5.51913 8.52639 6.1646 8.52076 7.00272ZM12.2797 9.76176H9.75971H9.7583V18.3216H12.4217V18.1219C12.4217 17.742 12.4214 17.362 12.4211 16.9819V16.9818V16.9816V16.9815V16.9812C12.4203 15.9674 12.4194 14.9532 12.4246 13.9397C12.426 13.6936 12.4372 13.4377 12.5005 13.2028C12.7381 12.3253 13.5271 11.7586 14.4074 11.8979C14.9727 11.9864 15.3467 12.3141 15.5042 12.8471C15.6013 13.1803 15.6449 13.5389 15.6491 13.8863C15.6605 14.9339 15.6589 15.9815 15.6573 17.0292V17.0294C15.6567 17.3992 15.6561 17.769 15.6561 18.1388V18.3202H18.328V18.1149C18.328 17.6629 18.3278 17.211 18.3275 16.7591V16.759V16.7588C18.327 15.6293 18.3264 14.5001 18.3294 13.3702C18.3308 12.8597 18.276 12.3563 18.1508 11.8627C17.9638 11.1286 17.5771 10.5211 16.9485 10.0824C16.5027 9.77019 16.0133 9.5691 15.4663 9.5466C15.404 9.54401 15.3412 9.54062 15.2781 9.53721L15.2781 9.53721L15.2781 9.53721C14.9984 9.52209 14.7141 9.50673 14.4467 9.56066C13.6817 9.71394 13.0096 10.0641 12.5019 10.6814C12.4429 10.7522 12.3852 10.8241 12.2991 10.9314L12.2991 10.9315L12.2797 10.9557V9.76176ZM5.68164 18.3244H8.33242V9.76733H5.68164V18.3244Z" fill="CurrentColor"></path>
                                 </svg></div>
                             </a>
-                            <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/seavisionpro.html&text=Check out this technical deep dive to SeaVisionPro!" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/staticwebsite.html&text=Check out what How easy it is to set up a website on AWS with this cloudformation template!" target="_blank" class="blog-post_body_social-link w-inline-block">
                               <div class="icon-embed-xsmall w-embed">
                                 <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M17.1761 4H19.9362L13.9061 10.7774L21 20H15.4456L11.0951 14.4066L6.11723 20H3.35544L9.80517 12.7508L3 4H8.69545L12.6279 9.11262L17.1761 4ZM16.2073 18.3754H17.7368L7.86441 5.53928H6.2232L16.2073 18.3754Z" fill="CurrentColor"></path>
                                 </svg></div>
                             </a>
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com/projects/seavisionpro.html" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com.com/projects/staticwebsite.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                               <div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22 12.0611C22 6.50451 17.5229 2 12 2C6.47715 2 2 6.50451 2 12.0611C2 17.0828 5.65684 21.2452 10.4375 22V14.9694H7.89844V12.0611H10.4375V9.84452C10.4375 7.32296 11.9305 5.93012 14.2146 5.93012C15.3088 5.93012 16.4531 6.12663 16.4531 6.12663V8.60261H15.1922C13.95 8.60261 13.5625 9.37822 13.5625 10.1739V12.0611H16.3359L15.8926 14.9694H13.5625V22C18.3432 21.2452 22 17.083 22 12.0611Z" fill="CurrentColor"></path>
                               </svg></div>
@@ -134,7 +277,7 @@ a {
                       </div>
                     </div>
                   </div>
-                  <div class="blog-post_header_image-wrapper"><img width="Auto" sizes="(max-width: 767px) 90vw, (max-width: 991px) 43vw, 42vw" alt="coral reef and a swimming sea turtle" src="../images/projects/seavisionpro-head.webp" loading="eager" srcset="../images/projects/seavisionpro-head-500w.webp 500w, ../images/projects/seavisionpro-head-800w.webp 800w" style="border-radius: 0.5rem" class="blog-post_header_image"></div>
+                  <div class="blog-post_header_image-wrapper"><img loading="eager" src="../images/placeholder-image.svg" alt="" class="blog-post_header_image"></div>
                 </div>
               </div>
             </div>
@@ -149,101 +292,46 @@ a {
                 <div class="max-width-large align-center">
                   <div class="blog-post_body_content-wrapper">
                     <div class="text-rich-text w-richtext">
-                      <h3>The Inspiration Behind SeaVisionPro</h3>
-                      <p>I love the sea, and I’ve always been fascinated by the underwater world.<br>
-                        Living a bit farther from the beach, I couldn`t simply check visibility when I woke up, planning a snorkeling trip required foresight.<br>
-                        This sparked my curiosity, and I began researching how weather metrics influence underwater visibility.
-                        I crafted an algorithm to analyze these metrics and ran it on aws lambda which emailed me using SQS and SNS the night before, letting me know if the next day would be ideal for snorkeling.</p>
-                      <p>For a year, I used this simple system to plan early morning trips, giving me plenty of time to prepare my gear and get to the beach.<br>
-                        The experience was so helpful and exciting that I realized it could benefit others, leading to the creation of SeaVisionPro — A platform to share this convenience and joy with the wider diving and snorkeling community.</p>
+                      <h3>Why Use a CloudFormation Template for Your Websites?</h3>
+                      <p>Static websites are lightweight, scalable, very cost-effective, and perfect for projects like blogs, portfolios, or even small business sites.</p>
+                      <p>The alternatives of using a dedicated hosting service like godaddy or hugo are expensive, have a learning curve and usually provide to many features and a similar uptime.</p>
+                      <p>However, setting up your own infrastructure manually can be tedious and error-prone, especially when dealing with multiple environments or domains.</p>
+                      <p><span class="text-weight-bold">With CloudFormation, you can:</span>
+                        <ul>
+                          <li>Automate the creation of AWS resources like S3, CloudFront, and Route 53.</li>
+                          <li>Maintain consistent configurations for multiple websites.</li>
+                          <li>Set up complex infrastructure in minutes.</li>
+                        </ul>
+                      <span class="text-weight-bold">This template empowers you to focus on content, not configuration.</span>
+                      </p>
                       <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="../images/projects/seavisionpro-result-table.png" alt="seavisionpro results section"></div>
-                        <figcaption>Results section of SeaVisionPro</figcaption>
+                        <div><img loading="lazy" src="https://uploads-ssl.webflow.com/624380709031623bfe4aee60/6243807090316262904aee69_Placeholder%20Image%20-%20Landscape.svg" alt=""></div>
+                        <figcaption>Image caption goes here</figcaption>
                       </figure>
-
-                      <h3>Website Infrastructure Setup</h3>
-                      <h6>Focused on AWS services stack, I wanted a simple, resilient, cost-effective setup to host and serve the frontend section of SeaVisionPro.</h6>
-                      <h7 class="text-weight-bold">Key Components:</h7>
-                      <ul>
-                        <li>
-                          <span class="text-weight-bold">AWS S3 and CloudFront:</span>
-                          <p>The site is hosted on AWS S3 as a static website, with CloudFront handling CDN and caching to ensure fast load times worldwide.<br>
-                            SSL/TLS encryption was implemented using AWS ACM for secure browsing.</p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Domain and Routing:</span>
-                          <p>The custom domain, seavisionpro.com, is managed via AWS Route 53, which ensures reliable and efficient DNS resolution.<br>
-                          Setting up a CNAME record for the certificate and an A record to connect the cloudfront distribution.</p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Deployment Pipeline Full CI/CD:</span>
-                          <p>Make dev easier with a CI/CD process.<br>
-                            A custom GitHub Action automates deployments by pushing updated files to S3 and invalidating the CloudFront cache.
-                            This streamlines development and ensures the latest content is always available to users.</p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Frontend Design:</span>
-                          <p>Haven't met a Backend developer who loves Front end dev yet, and Im no different in that aspect.<br>
-                            I looked for tools that made this process easier. Built using Relume, Figma and Webflow to generate ths sitemap, design and color scheme and export the HTML, CSS, and JS.<br>
-                            This tools incorporate AI to help with design and responsiveness. The design balances user-friendliness with responsiveness, providing a seamless experience across devices.</p>
-                        </li>
-                      </ul>
-                      <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="../images/projects/seavisionpro-fe.png" alt="seavisionpro request flow"></div>
-                        <figcaption>FE and CI/CD diagram</figcaption>
-                      </figure>
-
-                      <h3>Backend Algorithm Infrastructure</h3>
-                      <h6>I needed a scheduled process that would fetch weather metrics, run a custom algorithm to determine tomorrow's visibility rating and somewhere to store the results.</h6>
-                      <h7 class="text-weight-bold">Data Flow and Updates:</h7>
-                      <ul>
-                        <li>
-                          <span class="text-weight-bold">Data Collection and Processing:</span>
-                          <p>The backend algorithm collects weather metrics data on wave height, water temperature, and other parameters using AWS Lambda functions triggered by EventBridge event.<br>
-                            This ensures automated updates every evening, also, the lambda free tier is not breached, so no additional costs.<br>
-                            Running a Java lambda, the project had to be light with minimal start time.<br>
-                            That means no heavy libraries, no spring, no hibernate, just plain java and the algorithm has to be very efficient.
-                          </p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Data Storage:</span>
-                          <p>Processed data is stored in an AWS DynamoDB table.<br>
-                            I selected DynamoDB since there are no ongoing storage costs (within free tier) and since its nosql, I can use it for other projects that would require different items stored.<br>
-                            Also, DynamoDB and ApiGateway integrate well, and I can fetch data directly from the table without any additional services.
-                          </p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">API Layer:</span>
-                          <p>I use API Gateway to expose an endpoint that fetch visibility data and provide predictions.<br>
-                            This endpoint fetches data directly from DynamoDB, without Lambda or other services, insuring low latency and low cost.</p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Prediction Algorithm:</span>
-                          <p>A custom algorithm I crafted, analyzes recent weather data to generate visibility rating predictions.<br>
-                            The logic is optimized to deliver reliable predictions based on historical, predicted metrics and real-time trends.<br>
-                            The algorithm asses the data by assigning a "weight" to each metric, and then summing the weights to get a final score.<br>
-                            </p>
-                        </li>
-                        <li>
-                          <span class="text-weight-bold">Deployment Pipeline Full CI/CD:</span>
-                          <p>I put together a custom GitHub Action automates deployments by running UTs, packaging and updating the lambda with the jar.
-                            This streamlines development and makes my life allot easier.</p>
-                        </li>
-                      </ul>
-                      <figure style="max-width:1280px" class="w-richtext-align-fullwidth w-richtext-figure-type-image">
-                        <div><img loading="lazy" src="../images/projects/seavisionpro-be.png" alt="backend architecture and flow"></div>
-                        <figcaption>BE and CI/CD diagram</figcaption>
-                      </figure>
-
-                      <h4>Final Thoughts</h4>
-                      <h7 class="text-weight-bold">Scalability and Cost-Effectiveness:</h7>
-                      <p>As this is a "niche" site, I'm not expecting more than a few thousand entries per month, however,
-                        The infrastructure is designed to handle variable traffic volumes efficiently,scale dynamically while maintaining high availability and with minimal ongoing maintenance costs.<br>
-                        </p>
-                      <h7 class="text-weight-bold">Outcome and Next Steps:</h7>
-                      <p>SeaVisionPro is my first full website in production, it successfully delivers daily visibility predictions for multiple regions, helping divers and snorkelers plan their activities.<br>
-                        Future updates aim to include more content, additional regions, and improved prediction algorithm.</p>
-                      <h6>Don't forget to check out <a href="https://seavisionpro.com" target="_blank" style="color: #1e51f7" >SeaVisionPro.com</a></h6>
+                      <h3>How It Works and Prerequisites</h3>
+                      <p class="text-weight-bold">The template creates and affects the following resources:</p>
+                      <p>An <span class="text-weight-bold">S3 bucket</span>, to store your website content. Prepared for static web hosting and with permissions set to allow access only of the cloudfront distribution.</p>
+                      <p>A <span class="text-weight-bold">CloudFront distribution</span> to serve content globally with low latency. Ready with the S3 bucket as origin, connected SSL certificate and a default behaviour that uses a cloudfront function to hide www and the distribution url.</p>
+                      <p><span class="text-weight-bold">Route 53</span> A record to connect the distribution to your hosted zone and certificate.</p>
+                      <p class="text-weight-bold">Before running the template:</p>
+                      <ol>
+                        <li><span class="text-weight-bold">Domain Setup:</span><br>
+                          Ensure your domain is set up as a Route53 Hosted Zone or imported into Route53.</li>
+                        <li><span class="text-weight-bold">SSL/TLS Certificate:</span><br>
+                          Use <span class="text-weight-bold">AWS Certificate Manager (ACM)</span> to generate a free SSL/TLS certificate or import your own. This ensures your website is secure and uses HTTPS.</li>
+                        <li><span class="text-weight-bold">Adjust the Template:</span><br>
+                          Add your domain name (hosted zone name), hosted zone id, certificate arn, the bucket name you want to set and other configurable parameters from the top of the template,<br>
+                        and remove the cloudfront function from the Default behavior section (if it's not needed)</li>
+                        <li><span class="text-weight-bold">Run the Template:</span><br>
+                          I am not going to explain Cloudformation, and how to actually deploy the template (console/cli/other), you can find many guides, including official AWS docs, or use an AI to walk you through the steps.</li>
+                      </ol>
+                      <h3>A Closer Look at the Template</h3>
+                      <p>The full template is available on <a style="color: #1e51f7" href="https://github.com/asafmaoz1234/cloudformation-templates/tree/main/s3website-distribution-route53" target="_blank">GitHub</a> , with detailed instructions in the README.</p>
+                      <h3>Get Started Today!</h3>
+                      <p>With just a domain, a certificate, and this CloudFormation template, you can have a fully functional static website running in minutes.<br>
+                        It’s fast, reliable, and the perfect solution for small-scale projects.<br>
+                        <span class="text-weight-bold">Try it out now and experience the power of Infrastructure as Code!</span><br>
+                        If you have questions or feedback, feel free to reach out in the comments or use the <span class="text-weight-bold">Contact Us</span> section. Happy building!</p>
                     </div>
                   </div>
                   <div class="blog-post_body_content-bottom">
@@ -251,19 +339,17 @@ a {
                       <div class="text-size-medium text-weight-semibold">Share this post</div>
                       <div class="margin-top margin-xsmall">
                         <div class="w-layout-grid blog-post_body_share">
-                          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/seavisionpro.html" target="_blank" class="blog-post_body_social-link w-inline-block">
-                            <div class="icon-embed-xsmall w-embed">
-                              <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://asafmaoz.com/projects/staticwebsite.html" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 3C3.67157 3 3 3.67157 3 4.5V19.5C3 20.3284 3.67157 21 4.5 21H19.5C20.3284 21 21 20.3284 21 19.5V4.5C21 3.67157 20.3284 3 19.5 3H4.5ZM8.52076 7.00272C8.52639 7.95897 7.81061 8.54819 6.96123 8.54397C6.16107 8.53975 5.46357 7.90272 5.46779 7.00413C5.47201 6.15897 6.13998 5.47975 7.00764 5.49944C7.88795 5.51913 8.52639 6.1646 8.52076 7.00272ZM12.2797 9.76176H9.75971H9.7583V18.3216H12.4217V18.1219C12.4217 17.742 12.4214 17.362 12.4211 16.9819V16.9818V16.9816V16.9815V16.9812C12.4203 15.9674 12.4194 14.9532 12.4246 13.9397C12.426 13.6936 12.4372 13.4377 12.5005 13.2028C12.7381 12.3253 13.5271 11.7586 14.4074 11.8979C14.9727 11.9864 15.3467 12.3141 15.5042 12.8471C15.6013 13.1803 15.6449 13.5389 15.6491 13.8863C15.6605 14.9339 15.6589 15.9815 15.6573 17.0292V17.0294C15.6567 17.3992 15.6561 17.769 15.6561 18.1388V18.3202H18.328V18.1149C18.328 17.6629 18.3278 17.211 18.3275 16.7591V16.759V16.7588C18.327 15.6293 18.3264 14.5001 18.3294 13.3702C18.3308 12.8597 18.276 12.3563 18.1508 11.8627C17.9638 11.1286 17.5771 10.5211 16.9485 10.0824C16.5027 9.77019 16.0133 9.5691 15.4663 9.5466C15.404 9.54401 15.3412 9.54062 15.2781 9.53721L15.2781 9.53721L15.2781 9.53721C14.9984 9.52209 14.7141 9.50673 14.4467 9.56066C13.6817 9.71394 13.0096 10.0641 12.5019 10.6814C12.4429 10.7522 12.3852 10.8241 12.2991 10.9314L12.2991 10.9315L12.2797 10.9557V9.76176ZM5.68164 18.3244H8.33242V9.76733H5.68164V18.3244Z" fill="CurrentColor"></path>
                               </svg></div>
                           </a>
-                          <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/seavisionpro&text=Check out this technical deep dive to SeaVisionPro!" target="_blank" class="blog-post_body_social-link w-inline-block">
-                            <div class="icon-embed-xsmall w-embed">
-                              <svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <a href="https://twitter.com/intent/tweet?url=https://asafmaoz.com/projects/staticwebsite.html&text=Check out what How easy it is to set up a website on AWS with this cloudformation template!" target="_blank" class="blog-post_body_social-link w-inline-block">
+                            <div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M17.1761 4H19.9362L13.9061 10.7774L21 20H15.4456L11.0951 14.4066L6.11723 20H3.35544L9.80517 12.7508L3 4H8.69545L12.6279 9.11262L17.1761 4ZM16.2073 18.3754H17.7368L7.86441 5.53928H6.2232L16.2073 18.3754Z" fill="CurrentColor"></path>
                               </svg></div>
                           </a>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com/projects/seavisionpro.html" target="_blank" class="blog-post_body_social-link w-inline-block">
+                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://asafmaoz.com.com/projects/staticwebsite.html" target="_blank" class="blog-post_body_social-link w-inline-block">
                             <div class="icon-embed-xsmall w-embed"><svg width="100%" height="100%" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22 12.0611C22 6.50451 17.5229 2 12 2C6.47715 2 2 6.50451 2 12.0611C2 17.0828 5.65684 21.2452 10.4375 22V14.9694H7.89844V12.0611H10.4375V9.84452C10.4375 7.32296 11.9305 5.93012 14.2146 5.93012C15.3088 5.93012 16.4531 6.12663 16.4531 6.12663V8.60261H15.1922C13.95 8.60261 13.5625 9.37822 13.5625 10.1739V12.0611H16.3359L15.8926 14.9694H13.5625V22C18.3432 21.2452 22 17.083 22 12.0611Z" fill="CurrentColor"></path>
                               </svg></div>
@@ -274,9 +360,9 @@ a {
                     <div class="blog-post_body_tag-list-wrapper">
                       <div class="blog-post_body_tag-list">
                         <div class="tag"><div>AWS</div></div>
-                        <div class="tag"><div>Algorithm</div></div>
-                        <div class="tag"><div>NoSql</div></div>
-                        <div class="tag"><div>WebSite</div></div>
+                        <div class="tag"><div>Cloudformation</div></div>
+                        <div class="tag"><div>S3</div></div>
+                        <div class="tag"><div>Cloudfront</div></div>
                       </div>
                     </div>
                   </div>
@@ -289,6 +375,7 @@ a {
           </div>
         </div>
       </header>
+
       <section class="section_cta27 text-color-alternate">
         <div class="padding-global">
           <div class="container-large">
