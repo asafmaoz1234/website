@@ -9,3 +9,4 @@ Disallow: /css/*
 Disallow: /js/*
 Disallow: /eng/*
 Disallow: /old-build/*
+Allow: /images/asafmaoz-hub-logo-1200w-630.jpg
