@@ -3,8 +3,9 @@
     <p align="center">https://asafmaoz.com </p>
     <ul>
         <li><p>Serverless, Hosted on AWS.</p></li>
-        <li><p>S3 holds the files as a static webisite, cloudfront accelerates content delievery.</p></li>
-        <li>github actions for CI-CD</li>
+        <li><p>S3 holds the files as a static website, cloudfront accelerates content delivery.</p></li>
+        <li>github actions for CI-CD to production</li>
+        <li>complete dev env set up for feature branches.</li>
     </ul>
         <dl>
             <dt>Route 53</dt>
